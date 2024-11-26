@@ -1,0 +1,167 @@
+nav {
+  display: flex;
+  flex-direction: column;
+}
+nav .language {
+  width: 100%;
+  height: 40px;
+  width: 100%;
+  background-color: #000000;
+}
+nav .language .inDiv {
+  max-width: 1240px;
+  width: 100%;
+  height: 40px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+nav .language .inDiv p {
+  color: white;
+  font-size: 13px;
+}
+nav .language .inDiv .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 23px;
+}
+nav .language .inDiv .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+nav .language .inDiv .switch input:checked + .slider {
+  background-color: #cf3535;
+}
+nav .language .inDiv .switch input:focus + .slider {
+  box-shadow: 0 0 1px #cf3535;
+}
+nav .language .inDiv .switch input:checked + .slider:before {
+  transform: translateX(15px);
+}
+nav .language .inDiv .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+nav .language .inDiv .switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  top: 2px;
+  background-color: white;
+  transition: 0.4s;
+}
+nav .language .inDiv .switch .round {
+  border-radius: 34px;
+}
+nav .language .inDiv .switch .round:before {
+  border-radius: 50%;
+}
+nav .mainNav {
+  width: 100%;
+  height: 80px;
+  background-color: #cf3535;
+}
+nav .mainNav .d1 {
+  max-width: 1240px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .mainNav .d1 .logo h1 {
+  font-size: 35px;
+}
+nav .mainNav .d1 .search {
+  width: 70%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .mainNav .d1 .search .fa-solid {
+  position: relative;
+  left: 20px;
+  font-size: 17px;
+}
+nav .mainNav .d1 .search input {
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  padding-left: 30px;
+}
+nav .mainNav .d1 .cartUser {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+nav .mainNav .d1 .cartUser .cart {
+  padding-inline: 6px;
+  border-radius: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+nav .mainNav .d1 .cartUser .cart p {
+  font-size: 13px;
+}
+nav .mainNav .d1 .cartUser .user {
+  padding-inline: 6px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+nav .mainNav .d1 .cartUser .user p {
+  font-size: 13px;
+}
+nav .category {
+  width: 100%;
+}
+nav .category div {
+  max-width: 1240px;
+  width: 100%;
+  height: 70px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .category div ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  font-size: 19px;
+}
+nav .category div ul li {
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #ECEFF1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+nav .category div ul li .categIcons {
+  width: 25px;
+  height: 25px;
+}/*# sourceMappingURL=nav.component.css.map */

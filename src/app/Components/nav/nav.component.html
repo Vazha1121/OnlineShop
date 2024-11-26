@@ -1,0 +1,41 @@
+<nav>
+  <div class="language">
+    <div class="inDiv">
+      <p>ENG</p>
+      <label class="switch">
+        <input type="checkbox" checked />
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+  <div class="mainNav">
+    <div class="d1">
+      <div class="logo">
+        <h1>OnlineShop</h1>
+      </div>
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" name="" id="" placeholder="რას ეძებ?"/>
+      </div>
+      <div class="cartUser">
+        <div class="cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <p>კალათა</p>
+        </div>
+        <div class="user">
+          <i class="fa-solid fa-user"></i>
+          <p>შესვლა</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="category">
+    <div>
+      <ul>
+        @for (item of categ; track $index) {
+          <li><img [src]="item.image" alt="" class="categIcons">{{item.name}}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -4,34 +4,38 @@
 </div>
 <section>
   <div class="filter">
-    <div class="price">
-      <div class="name">
-        <p>ფასი</p>
-        <span>></span>
-      </div>
-      <form action="">
-        <input type="text" placeholder="მინ." />
-        <input type="text" placeholder="მაქს." />
-      </form>
-      <button>ძებნა</button>
-    </div>
-    <div class="brand">
-      <div class="name">
-        <p>ბრენდი</p>
-        <span>></span>
-      </div>
-      <div>
-        <div>
-          <input type="checkbox" name="" id="" />
-          <label for="">Asus</label>
+    <div id="container">
+      @for (item of item; track $index) {
+      <div class="item" [ngClass]="{ active: item.active }">
+        <div class="heading" (click)="itemClicked1($index)">ფასი</div>
+        <div class="content">
+          <form action="">
+            <input type="text" placeholder="მინ." />
+            <input type="text" placeholder="მაქს." />
+          </form>
+          <button>ძებნა</button>
         </div>
       </div>
+      }
+    </div>
+    <div id="container">
+      @for (item of item1; track $index) {
+      <div class="item" [ngClass]="{ active: item.active1}">
+        <div class="heading" (click)="itemClicked2($index)">ბრენდი</div>
+        <div class="content">
+          <div>
+            <input type="checkbox" name="" id="" />
+            <label for="">Asus</label>
+          </div>
+        </div>
+      </div>
+      }
     </div>
     <div class="rating">
-        <div class="name">
-            <p>რეიტინგი</p>
-            <span>></span>
-        </div>
+      <div class="name">
+        <p>რეიტინგი</p>
+        <span>></span>
+      </div>
       <div>
         <input type="text" placeholder="რეიტინგი" />
       </div>

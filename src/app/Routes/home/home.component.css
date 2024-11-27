@@ -12,4 +12,29 @@
 section {
   max-width: 1240px;
   margin: auto;
+}
+section .filter #container {
+  width: 400px;
+}
+section .filter #container .item .heading {
+  background-color: #cf3535;
+  padding: 20px 20px;
+  color: #fff;
+  cursor: pointer;
+}
+section .filter #container .item .content {
+  background-color: white;
+  padding: 0px 20px;
+  border: 1px solid black;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-out;
+}
+section .filter #container .item.active .content {
+  padding: 20px;
+  max-height: auto;
+}
+section .filter #container .item.active1 .content {
+  padding: 20px;
+  max-height: auto;
 }/*# sourceMappingURL=home.component.css.map */

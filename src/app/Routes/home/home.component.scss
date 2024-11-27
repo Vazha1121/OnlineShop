@@ -1,3 +1,5 @@
+$nav-color1: #cf3535;
+$nav-color2: #000000;
 .routes{
     max-width: 1240px;
     width: 100%;
@@ -11,4 +13,37 @@
 section{
     max-width: 1240px;
     margin: auto;
+    .filter{
+        #container{
+            width: 400px;
+            .item{
+                .heading{
+                    background-color: $nav-color1;
+                    padding: 20px 20px;
+                    color: #fff;
+                    cursor: pointer;
+                }
+                .content{
+                    background-color: white;
+                    padding: 0px 20px;
+                    border: 1px solid black;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: all 0.4s ease-out;
+                }
+                &.active{
+                    .content{
+                        padding: 20px;
+                        max-height: auto;
+                    }
+                }
+                &.active1{
+                    .content{
+                        padding: 20px;
+                        max-height: auto;
+                    }
+                }
+            }
+        }
+    }
 }

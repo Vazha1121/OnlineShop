@@ -77,9 +77,119 @@
   z-index: 1;
   background: transparent;
 }
-.sec1 .mainDiv .banksProds .lapsTels div .naxva button {
+.sec1 .mainDiv .banksProds .lapsTels div .naxva .see {
   width: 70px;
   height: 30px;
   border: none;
   border-radius: 0.5em;
+}
+
+/* sec2 */
+.sec2 {
+  width: 100%;
+  margin-top: 60px;
+}
+.sec2 .main {
+  max-width: 1440px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.sec2 .main .d2 {
+  display: flex;
+  gap: 15px;
+}
+.sec2 .main .d2 .card {
+  width: 250px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.sec2 .main .d2 .card .imDiv {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sec2 .main .d2 .card .imDiv .image {
+  width: 100%;
+  height: 150px;
+}
+.sec2 .main .d2 .card .stock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sec2 .main .d2 .card button {
+  width: 100%;
+  height: 45px;
+  background-color: #1c61e7;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5em;
+}
+.sec2 .main .d2 .card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 5px 0px;
+  transition: 0.2s;
+}
+
+/* sec3 */
+.sec2 {
+  width: 100%;
+  margin-top: 60px;
+}
+.sec2 .main {
+  max-width: 1440px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.sec2 .main .d2 {
+  display: flex;
+  gap: 15px;
+}
+.sec2 .main .d2 .card {
+  width: 250px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.sec2 .main .d2 .card .imDiv {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sec2 .main .d2 .card .imDiv .image {
+  width: 100%;
+  height: 150px;
+}
+.sec2 .main .d2 .card .stock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sec2 .main .d2 .card button {
+  width: 100%;
+  height: 45px;
+  background-color: #1c61e7;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5em;
+}
+.sec2 .main .d2 .card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 5px 0px;
+  transition: 0.2s;
 }/*# sourceMappingURL=home.component.css.map */

@@ -1,4 +1,7 @@
 <div class="carousel">
+    <button class="control prev" (click)="onPrev()">
+        <span class="arrow left"></span>
+    </button>
     <div class="container">
         @for (item of slides; track $index) {
             @if ($index === currentSlide) {
@@ -6,9 +9,6 @@
             }
         }
     </div>
-    <button class="control prev" (click)="onPrev()">
-        <span class="arrow left"></span>
-    </button>
     <button class="control next" (click)="onNext()"> 
         <span class="arrow right"></span>
     </button>

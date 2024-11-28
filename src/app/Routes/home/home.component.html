@@ -13,7 +13,7 @@
                     <div class="naxva">
                         <h4>Laptops</h4>
                         <p>შენი სამუშაო სივრცე</p>
-                        <button>ნახვა</button>
+                        <button class="see">ნახვა</button>
                     </div>
                 </div>
                 <div>
@@ -21,10 +21,82 @@
                     <div class="naxva">
                         <h4>Smartphones</h4>
                         <p>შენი ახალი სმარტფონი</p>
-                        <button>ნახვა</button>
+                        <button class="see">ნახვა</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!-- sec2 -->
+ <section class="sec2">
+    <div class="main">
+        <div class="d1">
+            <h2>კვირის მოთხოვნადი ლეპტოპები</h2>
+        </div>
+        <div class="d2">
+            @for (item of laps; track $index) {
+                <div class="card">
+                    <div class="imDiv">
+                        <img [src]="item.thumbnail" alt=""  class="image">
+                    </div>
+                    <div class="title">
+                        <p>{{item.title}}</p>
+                    </div>
+                    <div class="stock">
+                        @if(item.stock > 1){
+                            <i class="fa-solid fa-check" [style.color]="'green'"></i>
+                           <span [style.color]="'green'">მარაგშია</span>
+                        }
+                        @else {
+                            <i class="fa-solid fa-x" [style.color]="'red'"></i>
+                            <span [style.color]="'red'">არ არის მარაგში</span>
+                        }
+                    </div>
+                    <div class="price">
+                        <p>{{item.price.current | currency}}</p>
+                    </div>
+                    <button>
+                        კალათაში დამატება
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+ </section>
+ <!-- sec3 -->
+ <section class="sec2">
+    <div class="main">
+        <div class="d1">
+            <h2>კვირის მოთხოვნადი ლეპტოპები</h2>
+        </div>
+        <div class="d2">
+            @for (item of mobiles; track $index) {
+                <div class="card">
+                    <div class="imDiv">
+                        <img [src]="item.thumbnail" alt=""  class="image">
+                    </div>
+                    <div class="title">
+                        <p>{{item.title}}</p>
+                    </div>
+                    <div class="stock">
+                        @if(item.stock > 1){
+                            <i class="fa-solid fa-check" [style.color]="'green'"></i>
+                           <span [style.color]="'green'">მარაგშია</span>
+                        }
+                        @else {
+                            <i class="fa-solid fa-x" [style.color]="'red'"></i>
+                            <span [style.color]="'red'">არ არის მარაგში</span>
+                        }
+                    </div>
+                    <div class="price">
+                        <p>{{item.price.current | currency}}</p>
+                    </div>
+                    <button>
+                        კალათაში დამატება
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+ </section>

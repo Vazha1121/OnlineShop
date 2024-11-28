@@ -1,41 +1,55 @@
-<nav>
-  <div class="language">
-    <div class="inDiv">
-      <p>ENG</p>
-      <label class="switch">
-        <input type="checkbox" checked />
-        <span class="slider round"></span>
-      </label>
+<nav class="nav1">
+  <div class="inDiv">
+    <div class="logo"></div>
+    <div class="inputDiv">
+      <input type="search" name="" id="" placeholder="Search for products" />
+      <i class="fa-solid fa-magnifying-glass"></i>
     </div>
-  </div>
-  <div class="mainNav">
-    <div class="d1">
-      <div class="logo">
-        <h1>OnlineShop</h1>
+    <div class="call">
+      <div class="l1">
+        <div class="logo"></div>
       </div>
-      <div class="search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" name="" id="" placeholder="რას ეძებ?"/>
-      </div>
-      <div class="cartUser">
-        <div class="cart">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <p>კალათა</p>
-        </div>
-        <div class="user">
-          <i class="fa-solid fa-user"></i>
-          <p>შესვლა</p>
-        </div>
+      <div class="num">
+        <h3>დაგვიკავშირდი</h3>
+        <h3>+995 555 551 559</h3>
       </div>
     </div>
-  </div>
-  <div class="category">
-    <div>
-      <ul>
-        @for (item of categ; track $index) {
-          <li><img [src]="item.image" alt="" class="categIcons">{{item.name}}</li>
-        }
-      </ul>
+    <div class="delivery">
+      <div class="deliv"></div>
+      <div class="h3Div">
+        <h3>მიწოდება</h3>
+        <h3>ყველგან საქართველოში</h3>
+      </div>
     </div>
   </div>
 </nav>
+<!-- nav2 -->
+ <nav class="nav2">
+    <div class="inDiv">
+        <div class="d1">
+            <ul>
+                <li>ლეპტოპები</li>
+                <li>ტელეფონები</li>
+                <li>გარანტია</li>
+                <li>მიწოდეება</li>
+                <li>კონტაქტი</li>
+            </ul>
+        </div>
+        <div class="d2">
+            <div class="language">
+                <div class="flag"></div>
+                <p>GE</p>
+            </div>
+            <div class="user">
+                <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="cart">
+                <div class="cartWithlength">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p class="lengthP">1</p>
+                </div>
+                <p class="price">0,00ლ</p>
+            </div>
+        </div>
+    </div>
+ </nav>

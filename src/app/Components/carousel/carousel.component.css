@@ -1,0 +1,67 @@
+:host {
+  flex: 1;
+}
+
+.carousel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.5em;
+}
+.carousel .container .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+  border-radius: 0.5em;
+}
+.carousel .container .slide:hover {
+  transform: scale(1.025);
+}
+.carousel .control {
+  border: none;
+  background-color: transparent;
+  outline: 0;
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5em;
+  color: rgb(60, 21, 202);
+  font-weight: bold;
+  font-size: 3em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  height: 100%;
+  opacity: 80%;
+  transition: opacity 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+}
+.carousel .control .arrow {
+  display: block;
+  border-left: 0.1em solid rgb(94, 94, 94);
+  border-bottom: 0.1em solid rgb(80, 80, 80);
+  width: 0.5em;
+  height: 0.5em;
+}
+.carousel .control .left {
+  transform: rotate(45deg);
+}
+.carousel .control .right {
+  transform: rotate(225deg);
+}
+.carousel :hover, .carousel :focus {
+  opacity: 1;
+}
+.carousel .next {
+  right: 0px;
+}
+.carousel .prev {
+  left: 20px;
+}/*# sourceMappingURL=carousel.component.css.map */

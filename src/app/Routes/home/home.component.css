@@ -1,40 +1,85 @@
-.routes {
-  max-width: 1240px;
+.sec1 {
   width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
+  margin-top: 10px;
+}
+.sec1 .mainDiv {
+  max-width: 1440px;
+  width: 100%;
   margin: auto;
+  display: flex;
   gap: 10px;
 }
-
-section {
-  max-width: 1240px;
-  margin: auto;
+.sec1 .mainDiv .carousel {
+  display: block;
+  width: 50%;
+  height: 500px;
+  padding: 2em;
 }
-section .filter #container {
-  width: 400px;
-}
-section .filter #container .item .heading {
-  background-color: #cf3535;
-  padding: 20px 20px;
-  color: #fff;
-  cursor: pointer;
-}
-section .filter #container .item .content {
-  background-color: white;
-  padding: 0px 20px;
-  border: 1px solid black;
-  max-height: 0;
+.sec1 .mainDiv .banksProds {
+  width: 50%;
+  border-radius: 0.5em;
   overflow: hidden;
-  transition: all 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-section .filter #container .item.active .content {
-  padding: 20px;
-  max-height: auto;
+.sec1 .mainDiv .banksProds .banks {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
 }
-section .filter #container .item.active1 .content {
-  padding: 20px;
-  max-height: auto;
+.sec1 .mainDiv .banksProds .banks img {
+  width: 100%;
+  height: 300px;
+  transition: 0.3s;
+  border-radius: 0.5em;
+}
+.sec1 .mainDiv .banksProds .banks img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+.sec1 .mainDiv .banksProds .lapsTels {
+  width: 100%;
+  height: 200px;
+  border-radius: 0.5em;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.sec1 .mainDiv .banksProds .lapsTels div {
+  width: 50%;
+  height: 200px;
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+.sec1 .mainDiv .banksProds .lapsTels div img {
+  width: 100%;
+  height: 230px;
+  border-radius: 0.5em;
+  border-radius: 0.5em;
+  z-index: 0;
+  position: relative;
+  z-index: 1;
+  transition: 0.3s;
+}
+.sec1 .mainDiv .banksProds .lapsTels div img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+.sec1 .mainDiv .banksProds .lapsTels div .naxva {
+  width: 100px;
+  height: 130px;
+  position: relative;
+  bottom: 200px;
+  left: 30px;
+  z-index: 1;
+  background: transparent;
+}
+.sec1 .mainDiv .banksProds .lapsTels div .naxva button {
+  width: 70px;
+  height: 30px;
+  border: none;
+  border-radius: 0.5em;
 }/*# sourceMappingURL=home.component.css.map */

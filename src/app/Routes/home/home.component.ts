@@ -1,45 +1,21 @@
 import { NgClass } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
+import { CarouselComponent } from '../../Components/carousel/carousel.component';
 
 @Component({
   selector: 'app-home',
-  imports: [NgClass],
+  imports: [CarouselComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 
 
-  public item: {title: any; content: any; active?: boolean}[] = [
-    {
-      title: 'item1',
-      content: 'content1'
-    },
+  public slide = [
+    {src: "https://gstore.ge/wp-content/uploads/2022/12/16-series-poster-website-ბანნერ-Recovered-01.png.webp"},
+    {src: "https://gstore.ge/wp-content/uploads/2022/12/SURFACE-BANER-FOR-WEB-01.png.webp"}
   ]
-  public item1: {title: any; content: any; active1?: boolean}[] = [
-    {
-      title: 'item1',
-      content: 'content1'
-    },
-  ]
-
-  itemClicked1(i: number){
-    this.item = this.item.map((item) => {
-      item.active = false;
-
-      return item;
-    })
-
-    this.item[i].active = true;
-  }
-  itemClicked2(i: number){
-    this.item1 = this.item1.map((item) => {
-      item.active1 = false;
-
-      return item;
-    })
-
-    this.item1[i].active1 = true;
-  }
-
+  public banks = ["https://gstore.ge/wp-content/uploads/2024/09/ბოლო-განვდ-01.png.webp"];
+  public laptop = ["https://gstore.ge/wp-content/uploads/2024/07/leptopebis-baneri-saitiza-01.png.webp"];
+  public telef = ["https://gstore.ge/wp-content/uploads/2024/07/telefonebi-saitistvis-baner222-01.png.webp"];
 }

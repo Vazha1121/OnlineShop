@@ -1,172 +1,219 @@
-$nav-color1: #cf3535;
-$nav-color2: #000000;
-
-nav{
-  display: flex;
-  flex-direction: column;
-  .language {
-    width: 100%;
-    height: 40px;
-    width: 100%;
-    background-color: $nav-color2;
-    .inDiv {
-      max-width: 1240px;
-      width: 100%;
-      height: 40px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: end;
-      p{
-          color: white;
-          font-size: 13px;
-      }
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 40px;
-        height: 23px;
-        input {
-          opacity: 0;
-          width: 0;
-          height: 0;
-        }
-        input:checked + .slider {
-          background-color: $nav-color1;
-        }
-        input:focus + .slider {
-          box-shadow: 0 0 1px $nav-color1;
-        }
-        input:checked + .slider:before {
-          
-          
-          transform: translateX(15px);
-        }
-        .slider {
-          position: absolute;
-          cursor: pointer;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0px;
-          background-color: #ccc;
-          transition: 0.4s;
-        }
-        .slider:before {
-          position: absolute;
-          content: "";
-          height: 18px;
-          width: 18px;
-          left: 4px;
-          bottom: 4px;
-          top: 2px;
-          background-color: white;
-          -webkit-transition: .4s;
-          transition: .4s;
-        }
-        .round {
-          border-radius: 34px;
-        }
-        .round:before {
-          border-radius: 50%;
-        }
-      }
-    }
-  }
-  .mainNav{
+.nav1 {
+  width: 100%;
+  height: 80px;
+  .inDiv {
+    max-width: 1440px;
     width: 100%;
     height: 80px;
-    background-color: $nav-color1;
-    .d1{
-      max-width: 1240px;
-      width: 100%;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .logo{
-        h1{
-          font-size: 35px;
-        }
-      }
-      .search{
-        width: 70%;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .fa-solid{
-          position: relative;
-          left: 20px;
-          font-size: 17px;
-        }
-        input{
-          width: 100%;
-          height: 55px;
-          border-radius: 10px;
-          outline: none;
-          border: none;
-          font-size: 20px;
-          padding-left: 30px;
-        }
-      }
-      .cartUser{
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        .cart{
-          padding-inline: 6px;
-          border-radius: 10px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          p{
-            font-size: 13px;
-          }
-        }
-        .user{
-          padding-inline: 6px;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          p{
-            font-size: 13px;
-          }
-        }
-      }
-    }
-  }
-  .category{
-    width: 100%;
-    div{
-      max-width: 1240px;
-      width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      width: 200px;
       height: 70px;
-      margin: auto;
+      background-color: red;
+      display: flex;
+      background-size: 200px 70px;
+      background-image: url(../../../assets/images/Screenshot\ 2024-11-28\ 164945.png);
+      background-repeat: no-repeat;
+    }
+    .inputDiv {
       display: flex;
       align-items: center;
       justify-content: center;
-      ul{
+      flex: 1;
+      height: 80px;
+      input {
+        width: 100%;
+        height: 40px;
+        outline: none;
+        border: 1px solid grey;
+        border-radius: 20px;
+        padding-left: 20px;
+      }
+      .fa-magnifying-glass {
+        width: 36px;
+        height: 35px;
+        border-radius: 50%;
         display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1c61e7;
+        position: relative;
+        right: 36px;
+        color: white;
+      }
+    }
+    .call {
+      display: flex;
+      .logo {
+        width: 50px;
+        height: 50px;
+        background-image: url(../../../assets/images/Screenshot\ 2024-11-28\ 164959.png);
+        background-repeat: no-repeat;
+        background-size: 50px 50px;
+      }
+      .num {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        h3:nth-child(1) {
+          font-size: 17px;
+        }
+        h3:nth-child(2) {
+          color: #1c61e7;
+          font-size: 13px;
+        }
+      }
+    }
+    .delivery {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .deliv {
+        width: 50px;
+        height: 50px;
+        background-image: url(../../../assets/images/Screenshot\ 2024-11-28\ 165036.png);
+        background-repeat: no-repeat;
+        background-size: 40px 40px;
+      }
+      .h3Div {
+        width: 100px;
+        height: 50px;
+        h3:nth-child(1) {
+          font-size: 15px;
+        }
+        h3:nth-child(2) {
+          font-size: 12px;
+          color: #1c61e7;
+        }
+      }
+    }
+  }
+}
+/* nav2 */
+.nav2 {
+  width: 100%;
+  height: 60px;
+  background-color: #e6effd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .inDiv {
+    max-width: 1440px;
+    width: 100%;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 10px;
+    
+    .d1 {
+      flex: 1;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      
+      ul {
+        display: flex;
+        height: 60px;
+        margin-top: 15px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
         list-style: none;
-        gap: 20px;
-        font-size: 19px;
-        li{
-          width: 150px;
+        li {
+          width: 120px;
           height: 40px;
-          border-radius: 10px;
-          background-color: #ECEFF1;
+          border-radius: 20px;
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
           cursor: pointer;
-          .categIcons{
-            width: 25px;
-            height: 25px;
+        }
+        li:hover {
+          background-color: #d0e0fa;
+          color: #1c61e7;
+        }
+      }
+    }
+    .d2 {
+      flex: 1;
+      height: 60px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .language {
+        display: flex;
+        align-items: center;
+        height: 20px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        .flag {
+          width: 16px;
+          height: 16px;
+          background-image: url(../../../assets/images/Flag_of_Georgia.svg.png);
+          background-repeat: no-repeat;
+          background-size: 16px 16px;
+        }
+        p{
+          margin-top: 13px;
+        }
+      }
+      .user {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: white;
+        cursor: pointer;
+        i {
+        }
+      }
+      .cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        gap: 5px;
+        .price{
+          margin-top: 10px;
+        }
+        .cartWithlength {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          background-color: #1c61e7;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          i {
+            color: white;
+            position: relative;
+            left: 7px;
+          }
+          .lengthP {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            background-color: white;
+            color: #1c61e7;
+            position: relative;
+            top: -7px;
+            left: 5px;
           }
         }
       }

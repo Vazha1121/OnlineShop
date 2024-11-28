@@ -1,46 +1,30 @@
-<div class="routes">
-  <p>მთავარი</p>
-  <span>></span>
-</div>
-<section>
-  <div class="filter">
-    <div id="container">
-      @for (item of item; track $index) {
-      <div class="item" [ngClass]="{ active: item.active }">
-        <div class="heading" (click)="itemClicked1($index)">ფასი</div>
-        <div class="content">
-          <form action="">
-            <input type="text" placeholder="მინ." />
-            <input type="text" placeholder="მაქს." />
-          </form>
-          <button>ძებნა</button>
+<section class="sec1">
+    <div class="mainDiv">
+        <div class="carousel">
+            <app-carousel [slides]="slide"></app-carousel>
         </div>
-      </div>
-      }
-    </div>
-    <div id="container">
-      @for (item of item1; track $index) {
-      <div class="item" [ngClass]="{ active: item.active1}">
-        <div class="heading" (click)="itemClicked2($index)">ბრენდი</div>
-        <div class="content">
-          <div>
-            <input type="checkbox" name="" id="" />
-            <label for="">Asus</label>
-          </div>
+        <div class="banksProds">
+            <div class="banks">
+                <img [src]="banks" alt="">
+            </div>
+            <div class="lapsTels">
+                <div>
+                    <img [src]="laptop" alt="">
+                    <div class="naxva">
+                        <h4>Laptops</h4>
+                        <p>შენი სამუშაო სივრცე</p>
+                        <button>ნახვა</button>
+                    </div>
+                </div>
+                <div>
+                    <img [src]="telef" alt="">
+                    <div class="naxva">
+                        <h4>Smartphones</h4>
+                        <p>შენი ახალი სმარტფონი</p>
+                        <button>ნახვა</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      }
     </div>
-    <div class="rating">
-      <div class="name">
-        <p>რეიტინგი</p>
-        <span>></span>
-      </div>
-      <div>
-        <input type="text" placeholder="რეიტინგი" />
-      </div>
-      <button>ძებნა</button>
-    </div>
-  </div>
-  <div class="prods"></div>
 </section>

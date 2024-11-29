@@ -16,6 +16,7 @@ constructor(public api: ApiService){ }
 ngOnInit(): void {
   this.showLaptops()
   this.showTelphone()
+  
 }
   public slide = [
     {src: "https://gstore.ge/wp-content/uploads/2022/12/16-series-poster-website-ბანნერ-Recovered-01.png.webp"},

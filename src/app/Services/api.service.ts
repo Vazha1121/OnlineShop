@@ -36,4 +36,7 @@ export class ApiService {
   getWithBrandName(brand:any, pageindex:any,pageSize:any){
     return this.http.get(`https://api.everrest.educata.dev/shop/products/brand/${brand}?page_index=${pageindex}&page_size=${pageSize}`)
   }
+  brands(){
+    return this.http.get(`https://api.everrest.educata.dev/shop/products/brands`)
+  }
 }

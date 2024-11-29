@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -6,14 +6,17 @@ import { Component, Input } from '@angular/core';
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss'
 })
-export class CarouselComponent {
+export class CarouselComponent implements OnInit{
 
 @Input() slides:any;
 
  currentSlide = 0;
 
- constructor(){}
+ constructor(){
+ }
+ngOnInit(): void {
 
+}
  onPrev(){
   const previous = this.currentSlide - 1;
   this.currentSlide = previous < 0 ? this.slides.length - 1 : previous;

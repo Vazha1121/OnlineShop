@@ -1,0 +1,49 @@
+footer{
+    max-width: 1440px;
+    width: 100%;
+    margin: 30px auto ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .contact{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .socials{
+        div{
+            display: flex;
+            gap: 10px;
+            .fa-facebook{
+                width: 50px;
+                height: 50px;
+                background-color: #365493;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+            .fa-instagram{
+                width: 50px;
+                height: 50px;
+                background-color: #774430;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+            .fa-tiktok{
+                width: 50px;
+                height: 50px;
+                background-color: #010101;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+        }
+    }
+}

@@ -16,8 +16,9 @@ section {
     display: flex;
     .filter {
       width: 300px;
-      box-shadow: 0px 0px 13px -6px;
+      height: 550px;
       border-radius: 0.5em;
+      background-color: white;
       padding: 15px;
       .rangeFilter {
         border-bottom: 1px solid #E4E4E4;
@@ -124,8 +125,10 @@ section {
             border: none;
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: space-between;
             transition: 0.2s;
+            padding-bottom: 10px;
             cursor: pointer;
             .imDiv {
               width: 100%;
@@ -138,19 +141,53 @@ section {
                 height: 150px;
               }
             }
+            .title{
+              width: 90%;
+            }
             .stock {
+              width: 90%;
               display: flex;
               align-items: center;
               gap: 10px;
+              margin: auto;
             }
-            button {
+            .price{
+              width: 90%;
+            }
+            .buttDiv{
               width: 100%;
-              height: 45px;
-              background-color: #1c61e7;
-              color: white;
-              font-weight: 600;
-              border: none;
-              border-radius: 0.5em;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              button {
+                width: 90%;
+                height: 45px;
+                background-color: #1c61e7;
+                color: white;
+                font-weight: 600;
+                border: none;
+                border-radius: 0.5em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                overflow: hidden;
+                i{
+                  transform: translateY(25px);
+                  transition: 0.2s;
+                }
+                span{
+                  transform: translateY(10px);
+                  transition: 0.2s;
+                }
+              }
+              button:hover{
+                span{
+                  transform: translateY(-30px);
+                }
+                i{
+                  transform: translateY(-10px);
+                }
+              }
             }
           }
           .card:hover {
@@ -173,6 +210,10 @@ section {
             height: 35px;
             border: none;
             border-radius: 0.5em;
+            background-color: white;
+            color: black;
+          }
+          button:focus{
             background-color: #1c61e7;
             color: white;
           }

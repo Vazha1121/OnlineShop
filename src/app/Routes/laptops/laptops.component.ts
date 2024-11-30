@@ -49,7 +49,7 @@ export class LaptopsComponent implements OnInit {
     });
   }
   public id: any = 1;
-  public pageSize: any = 10;
+  public pageSize: any = 12;
   public prods: any;
   public pageRaod: any = [1, 2, 3];
   public pageID: any = 0;

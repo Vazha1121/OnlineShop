@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../Services/api.service';
 import { error } from 'console';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './nav.component.scss'
 })
 export class NavComponent implements OnInit{
-  constructor(public apiServ: ApiService){}
+  constructor(public apiServ: ApiService, public actR:Router){}
 
   ngOnInit(): void {
     this.category()
@@ -28,5 +28,7 @@ export class NavComponent implements OnInit{
       }
     })
   }
-
+  goOnlapPage(){
+this.actR.navigate(['laptops'])
+  }
 }

@@ -12,11 +12,16 @@ section {
     gap: 10px;
   }
   .mainProds {
+    width: 100%;
+    display: flex;
     .filter {
       width: 300px;
-
+      box-shadow: 0px 0px 13px -6px;
+      border-radius: 0.5em;
+      padding: 15px;
       .rangeFilter {
-        margin-top: 40px;
+        border-bottom: 1px solid #E4E4E4;
+        padding-bottom: 10px;
         .price-input-container {
           width: 100%;
           .price-input {
@@ -82,7 +87,7 @@ section {
       }
       .brandFilter{
         width: 300px;
-        margin-top: 50px;
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -98,6 +103,78 @@ section {
           }
           li:hover{
             color: #1c61e7;
+          }
+        }
+      }
+    }
+    .products{
+      padding-inline: 30px;
+      .prods{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .p1{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: start;
+          gap: 20px;
+          .card {
+            width: 250px;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.2s;
+            cursor: pointer;
+            .imDiv {
+              width: 100%;
+              height: 250px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              .image {
+                width: 100%;
+                height: 150px;
+              }
+            }
+            .stock {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+            button {
+              width: 100%;
+              height: 45px;
+              background-color: #1c61e7;
+              color: white;
+              font-weight: 600;
+              border: none;
+              border-radius: 0.5em;
+            }
+          }
+          .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 0px 5px 0px;
+            transition: 0.2s;
+          }
+        }
+        .paginate{
+          width: 100%;
+          height: 50px;
+          margin: auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 50px;
+          button{
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 0.5em;
+            background-color: #1c61e7;
+            color: white;
           }
         }
       }

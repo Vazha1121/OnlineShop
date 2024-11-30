@@ -1,0 +1,106 @@
+section {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  .route {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mainProds {
+    .filter {
+      width: 300px;
+
+      .rangeFilter {
+        margin-top: 40px;
+        .price-input-container {
+          width: 100%;
+          .price-input {
+            font-size: 19px;
+            color: #555;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            .price-field {
+              display: flex;
+
+              input {
+                width: 40px;
+                font-size: 15px;
+                border-radius: 9px;
+                text-align: center;
+                border: 0px;
+              }
+              input::-webkit-outer-spin-button,
+              input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+              }
+            }
+          }
+        }
+        .slider-container {
+          height: 2px;
+          position: relative;
+          background-color: #e4e4e4;
+          border-radius: 5px;
+          margin-top: 10px;
+          overflow: hidden;
+          .price-slider {
+            height: 100%;
+            left: 25%;
+            right: 15%;
+            position: absolute;
+            background-color: #1c61e7;
+          }
+        }
+        .range-input {
+          position: relative;
+          input {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: none;
+            top: -5px;
+            pointer-events: none;
+            cursor: pointer;
+            appearance: none;
+          }
+          input[type="range"]::-webkit-slider-thumb {
+            height: 15px;
+            width: 2px;
+
+            background: #1c61e7;
+            pointer-events: auto;
+            appearance: none;
+          }
+        }
+      }
+      .brandFilter{
+        width: 300px;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        ul{
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          margin-left: -30px;
+          li{
+            cursor: pointer;
+            font-size: 17px;
+          }
+          li:hover{
+            color: #1c61e7;
+          }
+        }
+      }
+    }
+  }
+}

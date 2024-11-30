@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../Services/api.service';
 import { error } from 'console';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'
 })

@@ -1,0 +1,76 @@
+<section>
+  <div class="route">
+    <span routerLink="/">მთავარი</span> <span>/</span> <span>ლეპტოპები</span>
+  </div>
+  <div class="mainProds">
+    <div class="filter">
+      <div class="rangeFilter">
+        <span>ფასი:</span>
+        <div class="price-input-container">
+          <div class="slider-container" >
+            <div class="price-slider" [ngStyle]="{left: progressLeft, right: progressRight}"></div>
+          </div>
+          <!-- slider -->
+          <div class="range-input">
+            
+            <input
+              type="range"
+              [(ngModel)]="minPrice"
+              (input)="onRangeChange()"
+              class="min-range"
+              min="0"
+              max="6000"
+              value="2500"
+              step="1"
+            />
+            <input
+              type="range"
+              [(ngModel)]="maxPrice"
+              (input)="onRangeChange()"
+              class="max-range"
+              min="0"
+              max="6000"
+              value="8500"
+              step="1"
+            />
+          </div>
+
+          <div class="price-input">
+            <span>ფასი:</span>
+            <div class="price-field">
+              <input
+                type="number"
+                class="min-input"
+                value="2500"
+                [(ngModel)]="minPrice"
+                (input)="onInputChange()"
+              />
+              <span>ლ</span>
+            </div>
+            <span>-</span>
+            <div class="price-field">
+              <input
+                type="number"
+                class="input-max"
+                value="8500"
+                [(ngModel)]="maxPrice"
+                (input)="onInputChange()"
+              />
+              <span>ლ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="brandFilter">
+        <span>ბრენდები:</span>
+        <ul>
+            @for (item of brandUl; track $index) {
+                <li>{{item}}</li>
+            }
+        </ul>
+      </div>
+      <div class="rating"></div>
+    </div>
+    <div class="products"></div>
+  </div>
+</section>

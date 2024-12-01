@@ -31,4 +31,11 @@ export class NavComponent implements OnInit{
   goOnlapPage(){
 this.actR.navigate(['laptops'])
   }
+  public phoneID:any = 2;
+  public pageSize:any = 20;
+  public pageIndex:any = 1;
+  public phoneApi:any
+  goPhonePage(){
+    this.actR.navigate(['phones'])
+  }
 }

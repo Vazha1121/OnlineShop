@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ApiService } from '../../Services/api.service';
+
 
 @Component({
   selector: 'app-laptops',
@@ -15,6 +16,7 @@ export class LaptopsComponent implements OnInit {
   ngOnInit(): void {
     this.brandsApi();
     this.getProds(this.pageID);
+    this.getPhones()
   }
   public minPrice: number = 0;
   public maxPrice: number = 6000;
@@ -62,4 +64,8 @@ export class LaptopsComponent implements OnInit {
       },
     });
   }
+  public phoneID: any = 2;
+ getPhones(){
+  
+ }
 }

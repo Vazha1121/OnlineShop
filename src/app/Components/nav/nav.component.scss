@@ -12,11 +12,12 @@
     .logo {
       width: 200px;
       height: 70px;
-      background-color: red;
       display: flex;
-      background-size: 200px 70px;
-      background-image: url(../../../assets/images/Screenshot\ 2024-11-28\ 164945.png);
-      background-repeat: no-repeat;
+      cursor: pointer;
+      img{
+        width: 100%;
+      }
+
     }
     .inputDiv {
       display: flex;
@@ -176,8 +177,6 @@
         border-radius: 50%;
         background-color: white;
         cursor: pointer;
-        i {
-        }
       }
       .cart {
         display: flex;

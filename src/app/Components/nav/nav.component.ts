@@ -15,6 +15,7 @@ export class NavComponent implements OnInit{
   ngOnInit(): void {
     this.category()
   }
+  public logo: any = 'https://gstore.ge/wp-content/uploads/2023/10/1111-1.png'
   public categ:any;
   category(){
     this.apiServ.getCategory().subscribe({

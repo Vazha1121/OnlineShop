@@ -1,0 +1,134 @@
+section {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  gap: 10px;
+  position: relative;
+  margin-top: 20px;
+  .d1 {
+    width: 75%;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .miwodebisService {
+      width: 100%;
+      display: flex;
+      background-color: #1c61e7;
+      border-radius: 0.5em;
+      overflow: hidden;
+      color: white;
+      align-items: center;
+      padding-block: 40px;
+      .text {
+        .h1Div {
+          text-align: center;
+        }
+      }
+    }
+    .hDiv {
+      width: 100%;
+      height: 80px;
+      border-radius: 0.5em;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        font-size: 25px;
+      }
+    }
+    .working {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: white;
+      border-radius: 0.5em;
+
+      .phtDiv {
+        width: 100%;
+
+        border-radius: 0.5em;
+        padding: 20px;
+        ul {
+          display: flex;
+          list-style: none;
+          justify-content: space-between;
+          text-align: center;
+          margin-left: -30px;
+          div {
+            width: 250px;
+            height: 230px;
+            background-color: #f1f1f1;
+            border-radius: 0.5em;
+          }
+        }
+      }
+      .vadebi {
+        width: 100%;
+        height: 310px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+        div{
+            display: flex;
+            gap: 5px;
+            p{
+                opacity: 75%;
+            }
+            span{
+                font-weight: bold;
+                opacity: 75%;
+            }
+        }
+        .v1 {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          h1 {
+            font-size: 26px;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+  .d2Fixed {
+    width: 18%;
+    height: 1000px;
+    border-radius: 0.5em;
+    right: 230px;
+    display: flex;
+    justify-content: center;
+    .f1{
+        width: 260px;
+        border-radius: 0.5em;
+        height: 200px;
+        background-color: white;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        h4{
+            font-size: 20px;
+        }
+        span{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        div{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+  }
+}

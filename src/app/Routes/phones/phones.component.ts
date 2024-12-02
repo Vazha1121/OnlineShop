@@ -2,9 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ApiService } from '../Services/api.service';
-import { log } from 'console';
-
+import { ApiService } from '../../Services/api.service';
 @Component({
   selector: 'app-phones',
   imports: [RouterModule, FormsModule, CommonModule],

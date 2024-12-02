@@ -1,0 +1,37 @@
+section {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+section .d1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1C61E7;
+  border-radius: 0.5em;
+  color: white;
+  padding: 50px;
+}
+section .d1 img {
+  width: 400px;
+  height: 200px;
+}
+section .pirobebiDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+section .pirobebiDiv h3 {
+  font-weight: 600;
+  font-size: 25px;
+}
+section .pirobebiDiv p {
+  color: #777777;
+  font-size: 14px;
+}
+section .pirobebiDiv span {
+  font-weight: 600;
+}/*# sourceMappingURL=warranty.component.css.map */

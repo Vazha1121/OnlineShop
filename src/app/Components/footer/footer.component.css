@@ -1,21 +1,32 @@
 footer {
+  width: 100%;
+  background-color: white;
+  position: relative;
+  bottom: -50px;
+}
+footer .fDiv {
   max-width: 1440px;
   width: 100%;
-  margin: 30px auto;
+  margin: -15px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-footer .contact {
+footer .fDiv .contact {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-footer .socials div {
+footer .fDiv .brands {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+footer .fDiv .socials div {
   display: flex;
   gap: 10px;
 }
-footer .socials div .fa-facebook {
+footer .fDiv .socials div .fa-facebook {
   width: 50px;
   height: 50px;
   background-color: #365493;
@@ -25,7 +36,7 @@ footer .socials div .fa-facebook {
   justify-content: center;
   color: white;
 }
-footer .socials div .fa-instagram {
+footer .fDiv .socials div .fa-instagram {
   width: 50px;
   height: 50px;
   background-color: #774430;
@@ -35,7 +46,7 @@ footer .socials div .fa-instagram {
   justify-content: center;
   color: white;
 }
-footer .socials div .fa-tiktok {
+footer .fDiv .socials div .fa-tiktok {
   width: 50px;
   height: 50px;
   background-color: #010101;

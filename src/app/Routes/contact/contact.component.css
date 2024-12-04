@@ -1,0 +1,93 @@
+section {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  gap: 5px;
+}
+section .contact1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+section .contact1 .c1 {
+  background-color: white;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  gap: 20px;
+  padding: 20px;
+}
+section .contact1 .c1 span:nth-child(1),
+section .contact1 .c1 span:nth-child(3),
+section .contact1 .c1 span:nth-child(4) {
+  font-weight: 600;
+}
+section .contact1 .c2 {
+  flex: 1;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+section .contact1 .c2 h4 {
+  font-weight: 600;
+}
+section .contact1 .c2 div {
+  display: flex;
+  gap: 10px;
+}
+section .contact1 .c2 div i {
+  width: 60px;
+  height: 60px;
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+section .contact1 .c2 div .fa-facebook {
+  background-color: #304a82;
+}
+section .contact1 .c2 div .fa-instagram {
+  background-color: #774430;
+}
+section .contact1 .c2 div .fa-tiktok {
+  background-color: black;
+}
+section .contact2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 340px;
+}
+section .contact2 .m1 {
+  flex: 2;
+  height: 300px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 0.5em;
+}
+section .contact2 .m2 {
+  flex: 1;
+  display: flex;
+  height: 300px;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  border-radius: 0.5em;
+  align-items: center;
+  justify-content: space-around;
+}
+section .contact2 .m2 span {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+section .contact2 .m2 span div {
+  display: flex;
+  gap: 10px;
+}/*# sourceMappingURL=contact.component.css.map */

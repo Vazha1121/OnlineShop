@@ -4,6 +4,7 @@ import { LaptopsComponent } from './Routes/laptops/laptops.component';
 import { PhonesComponent } from './Routes/phones/phones.component';
 import { WarrantyComponent } from './Routes/warranty/warranty.component';
 import { DeliveryComponent } from './Routes/delivery/delivery.component';
+import { ContactComponent } from './Routes/contact/contact.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,4 +12,5 @@ export const routes: Routes = [
   { path: 'phones', component: PhonesComponent },
   { path: 'warranty', component: WarrantyComponent },
   { path: 'delivery', component: DeliveryComponent },
+  { path: 'contact', component: ContactComponent },
 ];

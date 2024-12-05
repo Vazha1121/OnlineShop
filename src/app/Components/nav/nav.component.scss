@@ -14,10 +14,9 @@
       height: 70px;
       display: flex;
       cursor: pointer;
-      img{
+      img {
         width: 100%;
       }
-
     }
     .inputDiv {
       display: flex;
@@ -113,13 +112,13 @@
     align-items: center;
     justify-content: space-between;
     padding-inline: 10px;
-    
+
     .d1 {
       flex: 1;
       height: 60px;
       display: flex;
       align-items: center;
-      
+
       ul {
         display: flex;
         height: 60px;
@@ -164,7 +163,7 @@
           background-repeat: no-repeat;
           background-size: 16px 16px;
         }
-        p{
+        p {
           margin-top: 13px;
         }
       }
@@ -184,7 +183,7 @@
         justify-content: center;
         cursor: pointer;
         gap: 5px;
-        .price{
+        .price {
           margin-top: 10px;
         }
         .cartWithlength {
@@ -218,4 +217,142 @@
       }
     }
   }
+}
+
+.addCart {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  right: -5080px;
+  transition: 0.7s;
+  z-index: 12;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  .wholeCart {
+    width: 400px;
+    height: 100vh;
+    background-color: white;
+    .close {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e4e4e4;
+      padding: 20px;
+      span {
+        font-size: 20px;
+      }
+      i {
+        cursor: pointer;
+      }
+    }
+  }
+}
+.mobile_menu {
+  position: fixed;
+  right: 0px;
+  /* display: none; */
+  z-index: 12;
+}
+.signIn {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -5000px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  transition: 0.7s;
+  .login {
+    width: 400px;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    .in {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 1px solid #e4e4e4;
+    }
+    .loginForm {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          input {
+            outline: none;
+            border: 1px solid #e5e5e5;
+            border-radius: 0.5em;
+            height: 45px;
+          }
+        }
+      }
+      button {
+        width: 90%;
+        height: 45px;
+        border: none;
+        background-color: #1c61e7;
+        border-radius: 0.5em;
+        color: white;
+        margin: auto;
+      }
+      .lost {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e4e4e4;
+        padding: 20px;
+        .l1 {
+          display: flex;
+          gap: 5px;
+          align-items: center;
+        }
+      }
+      .createAcc {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        .fa-user {
+          font-size: 60px;
+          color: #9c9c9c;
+        }
+        span:nth-child(3) {
+          height: 30px;
+          border-bottom: 2px solid #1c61e7;
+          border-radius: 1px;
+          cursor: pointer;
+          transition: 0.2s;
+        }
+        span:nth-child(3):hover {
+          opacity: 70%;
+        }
+      }
+    }
+  }
+}
+.showSignIn {
+  right: 0px;
 }

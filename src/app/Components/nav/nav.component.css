@@ -216,4 +216,145 @@
   position: relative;
   top: -7px;
   left: 5px;
+}
+
+.addCart {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  right: -5080px;
+  transition: 0.7s;
+  z-index: 12;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.addCart .wholeCart {
+  width: 400px;
+  height: 100vh;
+  background-color: white;
+}
+.addCart .wholeCart .close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 20px;
+}
+.addCart .wholeCart .close span {
+  font-size: 20px;
+}
+.addCart .wholeCart .close i {
+  cursor: pointer;
+}
+
+.mobile_menu {
+  position: fixed;
+  right: 0px;
+  /* display: none; */
+  z-index: 12;
+}
+
+.signIn {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -5000px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  transition: 0.7s;
+}
+.signIn .login {
+  width: 400px;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.signIn .login .in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #e4e4e4;
+}
+.signIn .login .loginForm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.signIn .login .loginForm form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+.signIn .login .loginForm form div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.signIn .login .loginForm form div input {
+  outline: none;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5em;
+  height: 45px;
+}
+.signIn .login .loginForm button {
+  width: 90%;
+  height: 45px;
+  border: none;
+  background-color: #1c61e7;
+  border-radius: 0.5em;
+  color: white;
+  margin: auto;
+}
+.signIn .login .loginForm .lost {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 20px;
+}
+.signIn .login .loginForm .lost .l1 {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.signIn .login .loginForm .createAcc {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.signIn .login .loginForm .createAcc .fa-user {
+  font-size: 60px;
+  color: #9c9c9c;
+}
+.signIn .login .loginForm .createAcc span:nth-child(3) {
+  height: 30px;
+  border-bottom: 2px solid #1c61e7;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.signIn .login .loginForm .createAcc span:nth-child(3):hover {
+  opacity: 70%;
+}
+
+.showSignIn {
+  right: 0px;
 }/*# sourceMappingURL=nav.component.css.map */

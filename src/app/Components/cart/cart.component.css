@@ -1,0 +1,13 @@
+.cart {
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  right: -280px;
+  transition: 0.5s ease-in-out;
+  background-color: red;
+}
+
+.mobile_menu {
+  right: 0;
+  transition: 0.5s ease-in-out;
+}/*# sourceMappingURL=cart.component.css.map */

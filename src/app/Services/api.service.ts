@@ -74,4 +74,10 @@ export class ApiService {
       `https://api.everrest.educata.dev/shop/products/brands`
     );
   }
+  signIn(header:any){
+    return this.http.post(`https://api.everrest.educata.dev/auth/sign_in`, header)
+  }
+  signUp(header:any){
+    return this.http.post(`https://api.everrest.educata.dev/auth/sign_up`, header)
+  }
 }

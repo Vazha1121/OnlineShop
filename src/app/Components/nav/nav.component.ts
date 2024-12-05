@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../Services/api.service';
-import { error } from 'console';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-nav',
-  imports: [RouterModule],
+  imports: [RouterModule,ReactiveFormsModule],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'
 })
 export class NavComponent implements OnInit{
-  constructor(public apiServ: ApiService, public actR:Router){}
+  constructor(public apiServ: ApiService, public actR:Router, public cookie: CookieService){}
 
   ngOnInit(): void {
     this.category()
@@ -20,7 +21,6 @@ export class NavComponent implements OnInit{
   category(){
     this.apiServ.getCategory().subscribe({
       next: (data:any) => {
-        console.log(data);
         this.categ = data;
       },
       error: (err:any) => {
@@ -38,5 +38,30 @@ this.actR.navigate(['laptops'])
   public phoneApi:any
   goPhonePage(){
     this.actR.navigate(['phones'])
+  }
+public menuValue: boolean = false
+public showSignIn:boolean = false
+  openManu(){
+    this.menuValue = !this.menuValue
+  }
+  openSign(){
+    this.showSignIn = !this.showSignIn
+  }
+  public signIn:FormGroup = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl('')
+  })
+  public myAccessToken:any;
+  public myRefreshToken:any;
+  onSubmit(){
+    this.apiServ.signIn(this.signIn.value).subscribe({
+      next: (data:any) => {
+        console.log(data);
+        this.myAccessToken = data.access_token;
+        this.myRefreshToken = data.refresh_token
+        this.cookie.set("userAccToken", this.myAccessToken)
+      }
+    })
+    
   }
 }

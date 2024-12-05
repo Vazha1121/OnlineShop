@@ -1,7 +1,7 @@
 <nav class="nav1">
   <div class="inDiv">
     <div class="logo" routerLink="/">
-      <img [src]="logo" alt="">
+      <img [src]="logo" alt="" />
     </div>
     <div class="inputDiv">
       <input type="search" name="" id="" placeholder="Search for products" />
@@ -26,32 +26,74 @@
   </div>
 </nav>
 <!-- nav2 -->
- <nav class="nav2">
-    <div class="inDiv">
-        <div class="d1">
-            <ul>
-                <li (click)="goOnlapPage()">ლეპტოპები</li>
-                <li (click)="goPhonePage()">ტელეფონები</li>
-                <li routerLink="warranty">გარანტია</li>
-                <li routerLink="delivery">მიწოდეება</li>
-                <li routerLink="contact">კონტაქტი</li>
-            </ul>
-        </div>
-        <div class="d2">
-            <div class="language">
-                <div class="flag"></div>
-                <p>GE</p>
-            </div>
-            <div class="user">
-                <i class="fa-regular fa-user"></i>
-            </div>
-            <div class="cart">
-                <div class="cartWithlength">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <p class="lengthP">1</p>
-                </div>
-                <p class="price">0,00ლ</p>
-            </div>
-        </div>
+<nav class="nav2">
+  <div class="inDiv">
+    <div class="d1">
+      <ul>
+        <li (click)="goOnlapPage()">ლეპტოპები</li>
+        <li (click)="goPhonePage()">ტელეფონები</li>
+        <li routerLink="warranty">გარანტია</li>
+        <li routerLink="delivery">მიწოდეება</li>
+        <li routerLink="contact">კონტაქტი</li>
+      </ul>
     </div>
- </nav>
+    <div class="d2">
+      <div class="language">
+        <div class="flag"></div>
+        <p>GE</p>
+      </div>
+      <div class="user" (click)="openSign()">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      <div class="cart">
+        <div class="cartWithlength">
+          <i class="fa-solid fa-cart-shopping" (click)="openManu()"></i>
+          <p class="lengthP">1</p>
+        </div>
+        <p class="price">0,00ლ</p>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="addCart" [class.mobile_menu]="menuValue">
+  <div class="wholeCart">
+    <div class="close" (click)="openManu()">
+      <span>Shopping cart</span>
+      <i class="fa-solid fa-x" ></i>
+    </div>
+  </div>
+</div>
+<div class="signIn" [class.showSignIn]="showSignIn">
+  <div class="login">
+    <div class="in">
+      <span>Sign In</span>
+      <i class="fa-solid fa-x" (click)="openSign()"></i>
+    </div>
+    <div class="loginForm">
+      <form action="" [formGroup]="signIn" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="">ელფოსტის მისმართი <span>*</span></label>
+          <input type="text" formControlName="email">
+        </div>
+        <div>
+          <label for="">პაროლი <span>*</span></label>
+          <input type="password" name="" id="" formControlName="password">
+        </div>
+        <button type="submit">Login In</button>
+      </form>
+      
+      <div class="lost">
+        <div class="l1">
+          <input type="checkbox" name="" id="">
+          <span>Remember me</span>
+        </div>
+        <span>Lost your password?</span>
+      </div>
+      <div class="createAcc">
+        <i class="fa-regular fa-user"></i>
+        <span>No account yet?</span>
+        <span>Create An Account</span>
+      </div>
+    </div>
+  </div>
+</div>

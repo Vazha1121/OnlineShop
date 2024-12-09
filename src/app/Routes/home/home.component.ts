@@ -3,10 +3,11 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { CarouselComponent } from '../../Components/carousel/carousel.component';
 import { ApiService } from '../../Services/api.service';
 import { error } from 'console';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselComponent,CurrencyPipe],
+  imports: [CarouselComponent,CurrencyPipe,RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

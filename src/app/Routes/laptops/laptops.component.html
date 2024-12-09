@@ -99,8 +99,15 @@
             </div>
             <div class="buttDiv">
               <button>
-                <span>კალათაში დამატება</span>
-                <i class="fa-solid fa-cart-shopping"></i>
+                
+                @if(item.stock > 1){
+                  <span>კალათაში დამატება</span>
+                  <i class="fa-solid fa-cart-shopping"></i>
+                }
+                @else{
+                  <span>ვრცლად</span>
+                  <i class="fa-solid fa-eye"></i>
+                }
               </button>
             </div>
           </div>

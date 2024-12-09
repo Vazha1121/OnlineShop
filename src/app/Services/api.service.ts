@@ -80,4 +80,9 @@ export class ApiService {
   signUp(header:any){
     return this.http.post(`https://api.everrest.educata.dev/auth/sign_up`, header)
   }
+  /* cart API */
+
+  getCart(){
+    return this.http.get(`https://api.everrest.educata.dev/shop/cart`)
+  }
 }

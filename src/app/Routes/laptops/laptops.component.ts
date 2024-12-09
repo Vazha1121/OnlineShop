@@ -16,7 +16,6 @@ export class LaptopsComponent implements OnInit {
   ngOnInit(): void {
     this.brandsApi();
     this.getProds(this.pageID);
-    this.getPhones()
   }
   public minPrice: number = 0;
   public maxPrice: number = 6000;
@@ -64,8 +63,19 @@ export class LaptopsComponent implements OnInit {
       },
     });
   }
-  public phoneID: any = 2;
- getPhones(){
-  
- }
+
+  public cartData:any;
+  addInCart(){
+    this.api.getCart().subscribe({
+      next: (data:any) => {
+        console.log(data);
+        this.cartData = data;
+      },
+      error: (err:any) => {
+        console.log(err);
+        
+      }
+    })
+  }
+
 }

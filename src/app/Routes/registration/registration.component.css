@@ -1,1 +1,86 @@
-/*# sourceMappingURL=registration.component.css.map */
+section {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2dvh;
+}
+section .register {
+  flex: 1;
+  border-right: 1px solid #dcdcdc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+section .register .inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+section .register .inputs input {
+  width: 100%;
+  height: 42px;
+  border-radius: 0.5em;
+  border: 1px solid #e5e5e5;
+  background-color: white;
+  padding-left: 15px;
+}
+section .register .s1 {
+  color: #77797b;
+}
+section .register .s2 {
+  font-size: 15px;
+}
+section .register .regbtn {
+  height: 42px;
+  color: white;
+  background-color: #1C61E7;
+  border: none;
+  border-radius: 0.5em;
+  font-weight: 600;
+  font-size: 14px;
+}
+section .register .remember {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+section .register .remember .r1 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+section .register .remember .r2 {
+  color: #1C61E7;
+}
+section .register .remember .r2 span {
+  cursor: pointer;
+}
+section .register .remember .r2 span:hover {
+  text-decoration: underline;
+}
+section .enter {
+  height: 300px;
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+section .enter span span {
+  color: red;
+}
+section .enter button {
+  width: 85px;
+  height: 40px;
+  color: #4267e9;
+  background-color: #dce4fa;
+  border: none;
+  border-radius: 0.5em;
+  font-size: 13px;
+  font-weight: 600;
+}/*# sourceMappingURL=registration.component.css.map */

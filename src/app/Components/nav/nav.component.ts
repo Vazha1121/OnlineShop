@@ -64,4 +64,17 @@ public showSignIn:boolean = false
     })
     
   }
+  public cartData:any;
+  addInCart(){
+    this.apiServ.getCart().subscribe({
+      next: (data:any) => {
+        console.log(data);
+        this.cartData = data;
+      },
+      error: (err:any) => {
+        console.log(err);
+        
+      }
+    })
+  }
 }

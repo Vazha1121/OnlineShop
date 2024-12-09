@@ -102,8 +102,10 @@
         border: none;
         display: flex;
         flex-direction: column;
+        align-items: center;
         justify-content: space-between;
         transition: 0.2s;
+        padding-bottom: 10px;
         cursor: pointer;
         .imDiv {
           width: 100%;
@@ -116,19 +118,53 @@
             height: 150px;
           }
         }
+        .title{
+          width: 90%;
+        }
         .stock {
+          width: 90%;
           display: flex;
           align-items: center;
           gap: 10px;
+          margin: auto;
         }
-        button {
+        .price{
+          width: 90%;
+        }
+        .buttDiv{
           width: 100%;
-          height: 45px;
-          background-color: #1c61e7;
-          color: white;
-          font-weight: 600;
-          border: none;
-          border-radius: 0.5em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          button {
+            width: 90%;
+            height: 45px;
+            background-color: #1c61e7;
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.5em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            i{
+              transform: translateY(25px);
+              transition: 0.2s;
+            }
+            span{
+              transform: translateY(10px);
+              transition: 0.2s;
+            }
+          }
+          button:hover{
+            span{
+              transform: translateY(-30px);
+            }
+            i{
+              transform: translateY(-10px);
+            }
+          }
         }
       }
       .card:hover {

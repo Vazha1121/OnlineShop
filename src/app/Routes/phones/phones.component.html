@@ -81,7 +81,7 @@
               @for (item of prods; track $index) {
                 @if(item.category.id == 2){
                   <div class="card">
-                    <div class="imDiv">
+                    <div class="imDiv" [style.width]="'200px'">
                       <img [src]="item.thumbnail" alt="" class="image" />
                     </div>
                     <div class="title">

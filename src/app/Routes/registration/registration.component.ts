@@ -8,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class RegistrationComponent {
 
+
+
+  public login: boolean = false
+
+  changeSign(){
+    this.login = !this.login
+    console.log(this.login);
+    
+  }
 }

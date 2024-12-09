@@ -61,6 +61,18 @@
       <span>Shopping cart</span>
       <i class="fa-solid fa-x" ></i>
     </div>
+    <div class="prods">
+      @for (item of cartData; track $index) {
+        <div>
+          <div class="image">
+            <img [src]="item.image" alt="">
+          </div>
+          <div class="titleQuant">
+            <p>{{item.title}}</p>
+          </div>
+        </div>
+      }
+    </div>
   </div>
 </div>
 <div class="signIn" [class.showSignIn]="showSignIn">
@@ -92,7 +104,7 @@
       <div class="createAcc">
         <i class="fa-regular fa-user"></i>
         <span>No account yet?</span>
-        <span>Create An Account</span>
+        <span routerLink="register">Create An Account</span>
       </div>
     </div>
   </div>

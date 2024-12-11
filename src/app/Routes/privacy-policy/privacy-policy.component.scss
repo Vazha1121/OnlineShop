@@ -1,0 +1,15 @@
+section{
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 30px;
+    p{
+        opacity: 80%;
+        span{
+            font-weight: bold;
+        }
+    }
+}

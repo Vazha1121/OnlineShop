@@ -18,7 +18,6 @@ ngOnInit(): void {
   getBrands(){
     this.api.brands().subscribe({
       next: (data:any) => {
-        console.log(data);
         this.brandVar = data
       },
       error: (alter:any)=>{

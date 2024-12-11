@@ -1,0 +1,16 @@
+<section>
+  <div class="lapDiv">
+    <div class="carousel1">
+      @for (item of images; track $index) {
+      <img [src]="item" alt="" (click)="chngPhoto(item)" />
+      }
+    </div>
+    <div class="carousel2">
+      @if(detail.price.discountPercentage > 0){
+        <div><p>{{detail.price.discountPercentage}}%</p></div>
+      }
+      <img [src]="bigPhoto" [alt]="detail.images[0]" />
+    </div>
+    <div class="about"></div>
+  </div>
+</section>

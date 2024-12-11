@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 @if (login == false) {
 <section>
   <form class="register">
@@ -19,8 +20,8 @@
       this website, to manage access to your account, and for other purposes
       described in our
     </span>
-    <span class="s2">კონფიდენციალურობის პოლიტიკა.</span>
-    <button class="regbtn">რეგისტრაცია</button>
+    <span class="s2" (click)="privacy()"> კონფიდენციალურობის პოლიტიკა.</span>
+    <button class="regbtn" >რეგისტრაცია</button>
   </form>
   <div class="enter">
     <h4>შესვლა</h4>

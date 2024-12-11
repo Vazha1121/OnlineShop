@@ -32,6 +32,7 @@ section .register .s1 {
 }
 section .register .s2 {
   font-size: 15px;
+  cursor: pointer;
 }
 section .register .regbtn {
   height: 42px;

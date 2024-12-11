@@ -1,0 +1,53 @@
+section {
+  width: 100%;
+  background-color: white;
+  display: flex;
+}
+section .lapDiv {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  padding: 30px;
+  gap: 10px;
+}
+section .lapDiv .carousel1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 55px;
+  flex: 0.5;
+}
+section .lapDiv .carousel1 img {
+  width: 150px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+section .lapDiv .carousel1 img:hover {
+  opacity: 70%;
+}
+section .lapDiv .carousel2 {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+section .lapDiv .carousel2 img {
+  width: 100%;
+}
+section .lapDiv .carousel2 div {
+  width: 50px;
+  background-color: #1C61E7;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+section .lapDiv .about {
+  background-color: green;
+  flex: 2;
+}/*# sourceMappingURL=details.component.css.map */

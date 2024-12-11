@@ -13,9 +13,7 @@ constructor(public api:ApiService){}
 public isLoading:any;
 ngOnInit(): void {
   this.api.loading.subscribe((data:any) => {
-    console.log(data)
     this.isLoading = data;
-    
   })
 }
 }

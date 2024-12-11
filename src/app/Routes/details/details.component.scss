@@ -1,0 +1,54 @@
+section{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    .lapDiv{
+        max-width: 1440px;
+        width: 100%;
+        margin: auto;
+        display: flex;
+        padding: 30px;
+        gap: 10px;
+        
+        .carousel1{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 55px;
+            flex: 0.5;
+            img{
+                width: 150px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            img:hover{
+                opacity: 70%;
+            }
+        }
+        .carousel2{
+            display: flex;
+            align-items: center;
+            position: relative;
+            flex: 1;
+            img{
+                width: 100%;
+            }
+            div{
+                width: 50px;
+                background-color: #1C61E7;
+                position: absolute;
+                right: 0;
+                top: 20px;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 20px;
+            }
+        }
+        .about{
+            background-color: green;
+            flex: 2;
+        }
+    }
+}

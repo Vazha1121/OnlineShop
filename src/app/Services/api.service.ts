@@ -44,6 +44,9 @@ export class ApiService {
       `https://api.everrest.educata.dev/shop/products/all?page_index=${pgIndex}&page_size=${pgSize}`
     );
   }
+  getProdId(id:string | undefined){
+    return this.http.get(`https://api.everrest.educata.dev/shop/products/id/${id}`)
+  }
   deleteProd() {
     return this.http.delete(
       `https://api.everrest.educata.dev/shop/products/all`
@@ -85,4 +88,5 @@ export class ApiService {
   getCart(){
     return this.http.get(`https://api.everrest.educata.dev/shop/cart`)
   }
+
 }

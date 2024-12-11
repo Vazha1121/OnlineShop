@@ -52,4 +52,8 @@ showTelphone(){
   }
  })   
 }
+seeDetails(id:any){
+  console.log(id);
+  
+}
 }

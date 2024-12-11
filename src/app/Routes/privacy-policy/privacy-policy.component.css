@@ -1,0 +1,15 @@
+section {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 30px;
+}
+section p {
+  opacity: 80%;
+}
+section p span {
+  font-weight: bold;
+}/*# sourceMappingURL=privacy-policy.component.css.map */

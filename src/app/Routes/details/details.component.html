@@ -6,8 +6,8 @@
       }
     </div>
     <div class="carousel2">
-      @if(detail.price.discountPercentage > 0){
-        <div><p>{{detail.price.discountPercentage}}%</p></div>
+      @if(detailPrice > 0){
+        <div><p>{{detailPrice}}%</p></div>
       }
       <img [src]="bigPhoto" [alt]="detail.images[0]" />
     </div>

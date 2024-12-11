@@ -26,6 +26,7 @@ getPara(){
 public images: any;
 public detail:any;
 public bigPhoto:any;
+public detailPrice:any
   prodDetail(){
     this.api.getProdId(this.dataId).subscribe({
       next: (data:any) => {
@@ -33,6 +34,7 @@ public bigPhoto:any;
         this.detail = data
         this.images = data.images
         this.bigPhoto = data.images[0]
+        this.detailPrice = data.price.discountPercentage
       }
     })
   }

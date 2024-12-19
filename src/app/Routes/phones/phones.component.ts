@@ -13,6 +13,7 @@ export class PhonesComponent implements OnInit {
   constructor(public api: ApiService) {
     this.brandsApi();
     this.getProds(this.pageID);
+    this.getInfo()
   }
 
   ngOnInit(): void {}
@@ -38,32 +39,11 @@ export class PhonesComponent implements OnInit {
     }
   }
   public brandUl: any;
-  public apple: any;
-  public xiaomi: any;
-  public phoneBrands: any = [
-    {
-      brands: 'apple',
-    },
-    {
-      brands: 'samsung',
-    },
-    {
-      brands: 'xiaomi',
-    },
-    {
-      brands: 'honor',
-    },
-    {
-      brands: 'oneplus',
-    },
-  ];
   public brandO: any;
-  public Xiaomi: any = 'xiaomi';
   brandsApi() {
     this.api.brands().subscribe({
       next: (data: any) => {
         this.brandUl = data;
-        console.log(this.brandUl);
         this.brandO = [
           {
             brand: this.brandUl[1],
@@ -89,10 +69,7 @@ export class PhonesComponent implements OnInit {
   showThisBrand(id: any) {
     this.api.getOnlyBrand(this.brandO[id].brand).subscribe({
       next: (data: any) => {
-        console.log(data);
         this.prods = data.products;
-        console.log(this.prods);
-        console.log(id);
       },
     });
   }
@@ -113,4 +90,10 @@ export class PhonesComponent implements OnInit {
         },
       });
   }
+  getInfo(){
+    this.api.gadamzidi.subscribe((data:any) => {
+      console.log(data);
+      this.prods = data.products
+    })
+    }
 }

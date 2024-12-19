@@ -9,6 +9,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .burger{
+      display: none;
+    }
     .logo {
       width: 200px;
       height: 70px;
@@ -17,6 +20,9 @@
       img {
         width: 100%;
       }
+    }
+    .language2{
+      display: none;
     }
     .inputDiv {
       display: flex;
@@ -104,6 +110,35 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0px 0px 15px -10px;
+  .search2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 80px;
+    display: none;
+    input {
+      width: 100%;
+      height: 40px;
+      outline: none;
+      border: 1px solid grey;
+      border-radius: 20px;
+      padding-left: 20px;
+    }
+    .fa-magnifying-glass {
+      width: 36px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1c61e7;
+      position: relative;
+      right: 38px;
+      top: -0.0001em;
+      color: white;
+    }
+  }
   .inDiv {
     max-width: 1440px;
     width: 100%;
@@ -113,7 +148,6 @@
     align-items: center;
     justify-content: space-between;
     padding-inline: 10px;
-
     .d1 {
       flex: 1;
       height: 60px;
@@ -123,7 +157,6 @@
       ul {
         display: flex;
         height: 60px;
-        margin-top: 15px;
         align-items: center;
         justify-content: center;
         gap: 10px;
@@ -164,9 +197,6 @@
           background-repeat: no-repeat;
           background-size: 16px 16px;
         }
-        p {
-          margin-top: 13px;
-        }
       }
       .user {
         width: 35px;
@@ -184,9 +214,6 @@
         justify-content: center;
         cursor: pointer;
         gap: 5px;
-        .price {
-          margin-top: 10px;
-        }
         .cartWithlength {
           width: 35px;
           height: 35px;
@@ -356,4 +383,167 @@
 }
 .showSignIn {
   right: 0px;
+}
+.bacground{
+  position: fixed;
+  width: 100%;
+  height: 1100vh;
+  background-color: transparent;
+  z-index: -1;
+  transition: 0.2s;
+}
+.showThisBack{
+  transition: 0.3s;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 11;
+}
+/* burgerBar */
+.burgerBar{
+  width: 300px;
+  height: 200vh;
+  position: absolute;
+  background-color: white;
+  z-index: 0;
+  transform: translateX(-1400px);
+  transition: 0.3s ease-in-out;
+  padding-top: 50px;
+  .d1 {
+    flex: 1;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      height: 60px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      list-style: none;
+      li {
+        width: 120px;
+        height: 40px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      li:hover {
+        background-color: #d0e0fa;
+        color: #1c61e7;
+      }
+    }
+  }
+  .d2 {
+    flex: 1;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    .language {
+      display: flex;
+      align-items: center;
+      height: 20px;
+      flex-direction: row;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      .flag {
+        width: 16px;
+        height: 16px;
+        background-image: url(../../../assets/images/Flag_of_Georgia.svg.png);
+        background-repeat: no-repeat;
+        background-size: 16px 16px;
+      }
+    }
+    .user {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: white;
+      cursor: pointer;
+    }
+    .cart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      gap: 5px;
+      .cartWithlength {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: #1c61e7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+          color: white;
+          position: relative;
+          left: 7px;
+        }
+        .lengthP {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 13px;
+          background-color: white;
+          color: #1c61e7;
+          position: relative;
+          top: -7px;
+          left: 5px;
+        }
+      }
+    }
+  }
+}
+.showThisBruger{
+  z-index: 12;
+  transform: translateY(0);
+}
+@media screen and (max-width:900px) {
+  .nav1{
+    .inDiv{
+      display: flex;
+       align-items: center;
+       padding: 20px;
+       .burger{
+        display: flex;
+        font-size: 20px;
+       }
+       .language2{
+        display: flex;
+       }
+      .inputDiv{
+        display: none;
+      }
+      .call{
+        display: none;
+      }
+      .delivery{
+        display: none;
+      }
+    }
+  }
+  .nav2{
+    .search2{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 30px;
+    }
+    .inDiv{
+      display: none;
+    }
+  }
 }

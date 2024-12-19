@@ -36,8 +36,12 @@
     </div>
     <div class="d2">
       @for (item of laps; track $index) {
-      <div class="card" (click)="seeDetails(item._id)" routerLink="details/{{item._id}}">
-        <div class="imDiv">
+      <div class="card">
+        <div
+          class="imDiv"
+          (click)="seeDetails(item._id)"
+          routerLink="details/{{ item._id }}"
+        >
           <img [src]="item.thumbnail" alt="" class="image" />
         </div>
         <div class="title">
@@ -56,13 +60,21 @@
           <p>{{ item.price.current | currency }}</p>
         </div>
         <div class="buttDiv">
-          @if(item.stock > 1){
-          <button>
+          @if(item.stock > 1){ @if(kalata){
+          <button (click)="createCart(item._id)">
             <span>კალათაში დამატება</span>
             <i class="fa-solid fa-cart-shopping"></i>
           </button>
-          } @else{
-          <button (click)="seeDetails(item._id)">
+          }@else {
+          <button (click)="addCart(item._id)">
+            <span>კალათაში დამატება</span>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+          } } @else{
+          <button
+            (click)="seeDetails(item._id)"
+            routerLink="details/{{ item._id }}"
+          >
             <span>ვრცლად</span>
             <i class="fa-solid fa-eye"></i>
           </button>
@@ -81,8 +93,13 @@
     </div>
     <div class="d2">
       @for (item of mobiles; track $index) {
-      <div class="card" (click)="seeDetails(item._id)" routerLink="details/:{{item._id}}">
-        <div class="imDiv" [style.width]="'200px'">
+      <div class="card">
+        <div
+          class="imDiv"
+          [style.width]="'200px'"
+          (click)="seeDetails(item._id)"
+          routerLink="details/{{ item._id }}"
+        >
           <img [src]="item.thumbnail" alt="" class="image" />
         </div>
         <div class="title">
@@ -101,13 +118,21 @@
           <p>{{ item.price.current | currency }}</p>
         </div>
         <div class="buttDiv">
-          @if(item.stock > 1){
-          <button>
+          @if(item.stock > 1){ @if(kalata){
+          <button (click)="createCart(item._id)">
             <span>კალათაში დამატება</span>
             <i class="fa-solid fa-cart-shopping"></i>
           </button>
-          } @else{
-          <button (click)="seeDetails(item._id)">
+          }@else {
+          <button (click)="addCart(item._id)">
+            <span>კალათაში დამატება</span>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+          } } @else{
+          <button
+            (click)="seeDetails(item._id)"
+            routerLink="details/{{ item._id }}"
+          >
             <span>ვრცლად</span>
             <i class="fa-solid fa-eye"></i>
           </button>

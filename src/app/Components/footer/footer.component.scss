@@ -58,3 +58,26 @@ footer {
     }
   }
 }
+@media screen and (max-width:900px){
+  footer{
+    width: 100%;
+    position:relative;
+  .fDiv{
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    .socials{
+      align-items: center;
+      div{
+        display: flex;
+      }
+    }
+    .brands{
+      display: none;
+    }
+  }
+  }
+}

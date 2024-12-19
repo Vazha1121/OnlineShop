@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
   constructor(public http: HttpClient) {}
-
+  public gadamzidi: Subject<any> = new Subject()
+  public bSubject:BehaviorSubject<any> = new BehaviorSubject('')
   public loading: BehaviorSubject<any> = new BehaviorSubject(false);
   startLoader() {
     this.loading.next(true);
@@ -85,8 +86,23 @@ export class ApiService {
   }
   /* cart API */
 
-  getCart(){
-    return this.http.get(`https://api.everrest.educata.dev/shop/cart`)
+  getCart(header:any){
+    return this.http.get(`https://api.everrest.educata.dev/shop/cart`, {headers: header})
+  }
+  createCart(body:any, header:any){
+    return this.http.post(`https://api.everrest.educata.dev/shop/cart/product`, body, {headers: header})
+  }
+  addCart(body:any, header:any){
+    return this.http.patch(`https://api.everrest.educata.dev/shop/cart/product`, body, {headers: header})
+  }
+  auth(header:any){
+    return this.http.get(`https://api.everrest.educata.dev/auth`, {headers: header})
   }
 
+  userLeave(body:any){
+    this.http.post('https://api.everrest.educata.dev/auth/sign_out',body)
+  }
+  searchWithKeyword(keyword:any){
+    return this.http.get(`https://api.everrest.educata.dev/shop/products/search?keywords=${keyword}`)
+  }
 }

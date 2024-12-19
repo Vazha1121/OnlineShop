@@ -85,3 +85,45 @@ section {
     }
   }
 }
+.userProf{
+  max-width: 1440px;
+  width: 100%;
+  .profile
+  {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    .imgDiv{
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1C61E7;
+      img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
+    }
+    .infoDiv{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  .logOut{
+    button{
+      width: 100px;
+      height: 42px;
+      border: none;
+      border-radius: 0.5em;
+      background-color: #1C61E7;
+      color: white;
+      font-weight: 600;
+    }
+  }
+}

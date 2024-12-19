@@ -1,72 +1,112 @@
-<router-outlet></router-outlet>
-@if (login == false) {
-<section>
-  <form class="register">
-    <h4>რეგისტრაცია</h4>
-    <div class="inputs">
-      <label for="">მომხმარებლის სახელი <span>*</span></label>
-      <input type="text" />
-    </div>
-    <div class="inputs">
-      <label for="">ელფოსტის მისამართი<span>*</span></label>
-      <input type="email" />
-    </div>
-    <div class="inputs">
-      <label for="">პაროლი<span>*</span></label>
-      <input type="password" />
-    </div>
-    <span class="s1"
-      >Your personal data will be used to support your experience throughout
-      this website, to manage access to your account, and for other purposes
-      described in our
-    </span>
-    <span class="s2" (click)="privacy()"> კონფიდენციალურობის პოლიტიკა.</span>
-    <button class="regbtn" >რეგისტრაცია</button>
-  </form>
-  <div class="enter">
-    <h4>შესვლა</h4>
-    <span
-      >როგორც ჩანს თქვენ არ ხართ ავტორიზირებული მომხმარებელი, რის გამოც მოხვდით
-      ამ გვერდზე. გვერდის სანახავათ გთხოვთ გაიაროთ ავტორიზაცია. ან გაიარეთ
-      <span>"რეგისტრაცია"</span> ჩვენს ვებგვერდზე და თავიდან სცადეთ გვერდის
-      ნახვა
-    </span>
-    <button (click)="changeSign()">შესვლა</button>
-  </div>
-</section>
-} @else{
-<section>
-  <form class="register">
-    <h4>შესვლა</h4>
-    <div class="inputs">
-      <label for="">ელფოსტის მისამართი <span>*</span></label>
-      <input type="text" />
-    </div>
-    <div class="inputs">
-      <label for="">პაროლი<span>*</span></label>
-      <input type="password" />
-    </div>
-    <button class="regbtn">შესვლა</button>
-    <div class="remember">
-      <div class="r1">
-        <input type="checkbox" name="" id="" />
-        <span>Remember me</span>
+@if(getToken){
+  
+<section class="userProf">
+  <div class="profile">
+      <div class="imgDiv"><img [src]="img" alt=""></div>
+    <div class="infoDiv">
+      <div class="name">
+        <p>სახელი: {{firstName}}</p>
       </div>
-      <div class="r2">
-        <span>Lost your password?</span>
+      <div class="gvar">
+        <p>გვარი: {{lastName}}</p>
+      </div>
+      <div class="age">
+        <p>ასაკი: {{age}}</p>
+      </div>
+      <div class="gender">
+        <p>გენდერი: {{gender}}</p>
+      </div>
+      <div class="email">
+        <p>მეილი: {{mail}}</p>
+      </div>
+      <div class="phone">
+        <p>ტელეფონი: {{phone}}</p>
+      </div>
+      <div class="address">
+        <p>მისამართი: {{address}}</p>
+      </div>
+      <div class="zipcode">
+        <p>საფოსტო კოდი:{{postalCode}}</p>
       </div>
     </div>
-  </form>
-  <div class="enter">
-    <h4>შესვლა</h4>
-    <span>
-      როგორც ჩანს თქვენ არ ხართ ავტორიზირებული მომხმარებელი, რის გამოც მოხვდით
-      ამ გვერდზე. გვერდის სანახავათ გთხოვთ გაიაროთ ავტორიზაცია. ან გაიარეთ
-      <span>"რეგისტრაცია"</span> ჩვენს ვებგვერდზე და თავიდან სცადეთ გვერდის
-      ნახვა
-    </span>
-    <button (click)="changeSign()">რეგისტრაცია</button>
+    
+    <div class="logOut">
+      <button (click)="userOut()">გამოსვლა</button>
+    </div>
   </div>
 </section>
 
+}@else {
+  @if (login == false) {
+    <router-outlet></router-outlet>
+    <section>
+      <form class="register">
+        <h4>რეგისტრაცია</h4>
+        <div class="inputs">
+          <label for="">მომხმარებლის სახელი <span>*</span></label>
+          <input type="text" />
+        </div>
+        <div class="inputs">
+          <label for="">ელფოსტის მისამართი<span>*</span></label>
+          <input type="email" />
+        </div>
+        <div class="inputs">
+          <label for="">პაროლი<span>*</span></label>
+          <input type="password" />
+        </div>
+        <span class="s1"
+          >Your personal data will be used to support your experience throughout
+          this website, to manage access to your account, and for other purposes
+          described in our
+        </span>
+        <span class="s2" (click)="privacy()"> კონფიდენციალურობის პოლიტიკა.</span>
+        <button class="regbtn" >რეგისტრაცია</button>
+      </form>
+      <div class="enter">
+        <h4>შესვლა</h4>
+        <span
+          >როგორც ჩანს თქვენ არ ხართ ავტორიზირებული მომხმარებელი, რის გამოც მოხვდით
+          ამ გვერდზე. გვერდის სანახავათ გთხოვთ გაიაროთ ავტორიზაცია. ან გაიარეთ
+          <span>"რეგისტრაცია"</span> ჩვენს ვებგვერდზე და თავიდან სცადეთ გვერდის
+          ნახვა
+        </span>
+        <button (click)="changeSign()">შესვლა</button>
+      </div>
+    </section>
+    } @else{
+    <section>
+      <form class="register">
+        <h4>შესვლა</h4>
+        <div class="inputs">
+          <label for="">ელფოსტის მისამართი <span>*</span></label>
+          <input type="text" />
+        </div>
+        <div class="inputs">
+          <label for="">პაროლი<span>*</span></label>
+          <input type="password" />
+        </div>
+        <button class="regbtn">შესვლა</button>
+        <div class="remember">
+          <div class="r1">
+            <input type="checkbox" name="" id="" />
+            <span>Remember me</span>
+          </div>
+          <div class="r2">
+            <span>Lost your password?</span>
+          </div>
+        </div>
+      </form>
+      <div class="enter">
+        <h4>შესვლა</h4>
+        <span>
+          როგორც ჩანს თქვენ არ ხართ ავტორიზირებული მომხმარებელი, რის გამოც მოხვდით
+          ამ გვერდზე. გვერდის სანახავათ გთხოვთ გაიაროთ ავტორიზაცია. ან გაიარეთ
+          <span>"რეგისტრაცია"</span> ჩვენს ვებგვერდზე და თავიდან სცადეთ გვერდის
+          ნახვა
+        </span>
+        <button (click)="changeSign()">რეგისტრაცია</button>
+      </div>
+    </section>
+    
+    }
 }

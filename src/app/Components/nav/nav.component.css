@@ -11,6 +11,9 @@
   align-items: center;
   justify-content: space-between;
 }
+.nav1 .inDiv .burger {
+  display: none;
+}
 .nav1 .inDiv .logo {
   width: 200px;
   height: 70px;
@@ -19,6 +22,9 @@
 }
 .nav1 .inDiv .logo img {
   width: 100%;
+}
+.nav1 .inDiv .language2 {
+  display: none;
 }
 .nav1 .inDiv .inputDiv {
   display: flex;
@@ -106,6 +112,35 @@
   justify-content: center;
   box-shadow: 0px 0px 15px -10px;
 }
+.nav2 .search2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 80px;
+  display: none;
+}
+.nav2 .search2 input {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+.nav2 .search2 .fa-magnifying-glass {
+  width: 36px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c61e7;
+  position: relative;
+  right: 38px;
+  top: -0.0001em;
+  color: white;
+}
 .nav2 .inDiv {
   max-width: 1440px;
   width: 100%;
@@ -125,7 +160,6 @@
 .nav2 .inDiv .d1 ul {
   display: flex;
   height: 60px;
-  margin-top: 15px;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -167,9 +201,6 @@
   background-repeat: no-repeat;
   background-size: 16px 16px;
 }
-.nav2 .inDiv .d2 .language p {
-  margin-top: 13px;
-}
 .nav2 .inDiv .d2 .user {
   width: 35px;
   height: 35px;
@@ -186,9 +217,6 @@
   justify-content: center;
   cursor: pointer;
   gap: 5px;
-}
-.nav2 .inDiv .d2 .cart .price {
-  margin-top: 10px;
 }
 .nav2 .inDiv .d2 .cart .cartWithlength {
   width: 35px;
@@ -358,4 +386,167 @@
 
 .showSignIn {
   right: 0px;
+}
+
+.bacground {
+  position: fixed;
+  width: 100%;
+  height: 1100vh;
+  background-color: transparent;
+  z-index: -1;
+  transition: 0.2s;
+}
+
+.showThisBack {
+  transition: 0.3s;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 11;
+}
+
+/* burgerBar */
+.burgerBar {
+  width: 300px;
+  height: 200vh;
+  position: absolute;
+  background-color: white;
+  z-index: 0;
+  transform: translateX(-1400px);
+  transition: 0.3s ease-in-out;
+  padding-top: 50px;
+}
+.burgerBar .d1 {
+  flex: 1;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.burgerBar .d1 ul {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+}
+.burgerBar .d1 ul li {
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.burgerBar .d1 ul li:hover {
+  background-color: #d0e0fa;
+  color: #1c61e7;
+}
+.burgerBar .d2 {
+  flex: 1;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+.burgerBar .d2 .language {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.burgerBar .d2 .language .flag {
+  width: 16px;
+  height: 16px;
+  background-image: url(../../../assets/images/Flag_of_Georgia.svg.png);
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+}
+.burgerBar .d2 .user {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+.burgerBar .d2 .cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 5px;
+}
+.burgerBar .d2 .cart .cartWithlength {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #1c61e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.burgerBar .d2 .cart .cartWithlength i {
+  color: white;
+  position: relative;
+  left: 7px;
+}
+.burgerBar .d2 .cart .cartWithlength .lengthP {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  background-color: white;
+  color: #1c61e7;
+  position: relative;
+  top: -7px;
+  left: 5px;
+}
+
+.showThisBruger {
+  z-index: 12;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 900px) {
+  .nav1 .inDiv {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+  .nav1 .inDiv .burger {
+    display: flex;
+    font-size: 20px;
+  }
+  .nav1 .inDiv .language2 {
+    display: flex;
+  }
+  .nav1 .inDiv .inputDiv {
+    display: none;
+  }
+  .nav1 .inDiv .call {
+    display: none;
+  }
+  .nav1 .inDiv .delivery {
+    display: none;
+  }
+  .nav2 .search2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30px;
+  }
+  .nav2 .inDiv {
+    display: none;
+  }
 }/*# sourceMappingURL=nav.component.css.map */

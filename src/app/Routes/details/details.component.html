@@ -1,26 +1,51 @@
 <section>
   <div class="lapDiv">
-    <div class="carousel1">
-      @for (item of images; track $index) {
-      <img [src]="item" alt="" (click)="chngPhoto(item)" />
-      }
-    </div>
-    <div class="carousel2">
-      @if(detailPrice > 0){
-        <div><p>{{detailPrice}}%</p></div>
-      }
-      <img [src]="bigPhoto" [alt]="detail.images[0]" />
+    <div class="car">
+      <div class="carousel1">
+        @for (item of images; track $index) {
+        <img [src]="item" alt="" (click)="chngPhoto(item)" />
+        }
+      </div>
+      <div class="carousel2">
+        @if(detailPrice > 0){
+        <div>
+          <p>{{ detailPrice }}%</p>
+        </div>
+        }
+        <img [src]="bigPhoto" [alt]="detail.images[0]" />
+      </div>
     </div>
     <div class="about">
       <div class="nameCateg">
-        <h3></h3>
-        <p></p>
+        <h3>{{ detail.title }}</h3>
+        <p>
+          @if(detail.category.name == "laptops"){ ლეპტოპი }@else { ტელეფონი }
+        </p>
       </div>
       <div class="price">
-        <h3></h3>
+        <h3>{{ detail.price.current }}₾</h3>
       </div>
       <div class="warranty">
         <p>სრულიად ახალი 2 წლიანი გარანტიით</p>
+      </div>
+      <div class="addCart">
+        <div class="quantity">
+          <span (click)="minusQuant()">-</span> {{ raod }}
+          <span (click)="plusQuant()">+</span>
+        </div>
+        <button>კალათში დამატება</button>
+        <button>ყიდვა</button>
+      </div>
+      <div class="share">
+        <div>
+          <p>share:</p>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+      </div>
+      <div class="paymentMethods">
+        <p>Payment Methods:</p>
+        <img [src]="paymentImg" alt="" />
       </div>
     </div>
   </div>

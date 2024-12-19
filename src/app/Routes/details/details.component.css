@@ -2,6 +2,7 @@ section {
   width: 100%;
   background-color: white;
   display: flex;
+  justify-content: space-between;
 }
 section .lapDiv {
   max-width: 1440px;
@@ -9,33 +10,36 @@ section .lapDiv {
   margin: auto;
   display: flex;
   padding: 30px;
-  gap: 10px;
+  justify-content: space-between;
 }
-section .lapDiv .carousel1 {
+section .lapDiv .car {
+  display: flex;
+}
+section .lapDiv .car .carousel1 {
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 55px;
   flex: 0.5;
 }
-section .lapDiv .carousel1 img {
+section .lapDiv .car .carousel1 img {
   width: 150px;
   cursor: pointer;
   transition: 0.3s;
 }
-section .lapDiv .carousel1 img:hover {
+section .lapDiv .car .carousel1 img:hover {
   opacity: 70%;
 }
-section .lapDiv .carousel2 {
+section .lapDiv .car .carousel2 {
   display: flex;
   align-items: center;
   position: relative;
   flex: 1;
 }
-section .lapDiv .carousel2 img {
+section .lapDiv .car .carousel2 img {
   width: 100%;
 }
-section .lapDiv .carousel2 div {
+section .lapDiv .car .carousel2 div {
   width: 50px;
   background-color: #1C61E7;
   position: absolute;
@@ -48,6 +52,112 @@ section .lapDiv .carousel2 div {
   border-radius: 20px;
 }
 section .lapDiv .about {
-  background-color: green;
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+section .lapDiv .about .nameCateg h3 {
+  font-size: 35px;
+  opacity: 90%;
+}
+section .lapDiv .about .nameCateg p {
+  font-size: 25px;
+  opacity: 90%;
+}
+section .lapDiv .about .price h3 {
+  font-size: 35px;
+  color: #1C61E7;
+  font-weight: 500;
+}
+section .lapDiv .about .warranty p {
+  color: #6d6d6d;
+}
+section .lapDiv .about .addCart {
+  display: flex;
+  gap: 20px;
+}
+section .lapDiv .about .addCart .quantity {
+  width: 80px;
+  height: 42px;
+  border: 1px solid #c2c2c2;
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  color: #464646;
+}
+section .lapDiv .about .addCart .quantity span:nth-child(1) {
+  width: 25px;
+  height: 42px;
+  border-right: 1px solid #c2c2c2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+section .lapDiv .about .addCart .quantity span:nth-child(2) {
+  width: 25px;
+  height: 42px;
+  border-left: 1px solid #c2c2c2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+section .lapDiv .about .addCart .quantity span:hover {
+  background-color: #1C61E7;
+  color: white;
+}
+section .lapDiv .about .addCart button:nth-child(2) {
+  width: 320px;
+  height: 42px;
+  background-color: #1C61E7;
+  border: none;
+  border-radius: 0.5em;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+section .lapDiv .about .addCart button:nth-child(3) {
+  width: 255px;
+  height: 42px;
+  background-color: green;
+  border: none;
+  border-radius: 0.5em;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+section .lapDiv .about .share {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+section .lapDiv .about .share div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+section .lapDiv .about .share div p {
+  font-size: 20px;
+  color: #666666;
+}
+section .lapDiv .about .share div i {
+  font-size: 15px;
+  color: #666666;
+  cursor: pointer;
+}
+section .lapDiv .about .paymentMethods {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }/*# sourceMappingURL=details.component.css.map */

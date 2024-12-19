@@ -1,11 +1,25 @@
 <nav class="nav1">
   <div class="inDiv">
+    <div class="burger">
+      <i class="fa-solid fa-bars" (click)="showBurgerBar()"></i>
+    </div>
     <div class="logo" routerLink="/">
       <img [src]="logo" alt="" />
     </div>
+    <div class="language2">
+      <div class="flag"></div>
+      <p>GE</p>
+    </div>
     <div class="inputDiv">
-      <input type="search" name="" id="" placeholder="Search for products" />
-      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        type="search"
+        name=""
+        id=""
+        placeholder="Search for products"
+        [(ngModel)]="searchedText"
+        (keydown.enter)="searchItem()"
+      />
+      <i class="fa-solid fa-magnifying-glass" (click)="searchItem()"></i>
     </div>
     <div class="call">
       <div class="l1">
@@ -27,14 +41,18 @@
 </nav>
 <!-- nav2 -->
 <nav class="nav2">
+  <div class="search2">
+    <input type="search" name="" id="" placeholder="Search for products" (keydown.enter)="searchItem()" [(ngModel)]="searchedText"/>
+    <i class="fa-solid fa-magnifying-glass" (click)="searchItem()"></i>
+  </div>
   <div class="inDiv">
     <div class="d1">
       <ul>
-        <li (click)="goOnlapPage()">ლეპტოპები</li>
-        <li (click)="goPhonePage()">ტელეფონები</li>
-        <li routerLink="warranty">გარანტია</li>
-        <li routerLink="delivery">მიწოდეება</li>
-        <li routerLink="contact">კონტაქტი</li>
+        <li routerLink="laptops" (click)="goPhonePage()">ლეპტოპები</li>
+        <li routerLink="phones" (click)="goPhonePage()">ტელეფონები</li>
+        <li routerLink="warranty" (click)="goPhonePage()">გარანტია</li>
+        <li routerLink="delivery" (click)="goPhonePage()">მიწოდეება</li>
+        <li routerLink="contact" (click)="goPhonePage()">კონტაქტი</li>
       </ul>
     </div>
     <div class="d2">
@@ -42,13 +60,20 @@
         <div class="flag"></div>
         <p>GE</p>
       </div>
-      <div class="user" (click)="openSign()">
-        <i class="fa-regular fa-user"></i>
-      </div>
+      @if (cookie.get("userAccToken")) {
+        <div class="user" routerLink="register">
+          <i class="fa-regular fa-user"></i>
+        </div>
+      }
+      @else {
+        <div class="user" (click)="openSign()">
+          <i class="fa-regular fa-user"></i>
+        </div>
+      }
       <div class="cart">
         <div class="cartWithlength">
           <i class="fa-solid fa-cart-shopping" (click)="openManu()"></i>
-          <p class="lengthP">1</p>
+          <p class="lengthP">{{ cartItemRaod }}</p>
         </div>
         <p class="price">0,00ლ</p>
       </div>
@@ -59,20 +84,9 @@
   <div class="wholeCart">
     <div class="close" (click)="openManu()">
       <span>Shopping cart</span>
-      <i class="fa-solid fa-x" ></i>
+      <i class="fa-solid fa-x"></i>
     </div>
-    <div class="prods">
-      @for (item of cartData; track $index) {
-        <div>
-          <div class="image">
-            <img [src]="item.image" alt="">
-          </div>
-          <div class="titleQuant">
-            <p>{{item.title}}</p>
-          </div>
-        </div>
-      }
-    </div>
+    <div class="prods">@for (item of cartData; track $index) { }</div>
   </div>
 </div>
 <div class="signIn" [class.showSignIn]="showSignIn">
@@ -85,18 +99,18 @@
       <form action="" [formGroup]="signIn" (ngSubmit)="onSubmit()">
         <div>
           <label for="">ელფოსტის მისმართი <span>*</span></label>
-          <input type="text" formControlName="email">
+          <input type="text" formControlName="email" />
         </div>
         <div>
           <label for="">პაროლი <span>*</span></label>
-          <input type="password" name="" id="" formControlName="password">
+          <input type="password" name="" id="" formControlName="password" />
         </div>
         <button type="submit">Login In</button>
       </form>
-      
+
       <div class="lost">
         <div class="l1">
-          <input type="checkbox" name="" id="">
+          <input type="checkbox" name="" id="" />
           <span>Remember me</span>
         </div>
         <span>Lost your password?</span>
@@ -109,3 +123,33 @@
     </div>
   </div>
 </div>
+<div class="burgerBar" [class.showThisBruger]="burger">
+  <div class="d1">
+    <ul>
+      <li routerLink="laptops" (click)="goPhonePage()">ლეპტოპები</li>
+      <li routerLink="phones" (click)="goPhonePage()">ტელეფონები</li>
+      <li routerLink="warranty" (click)="goPhonePage()">გარანტია</li>
+      <li routerLink="contact" (click)="goPhonePage()" >კონტაქტი</li>
+    </ul>
+  </div>
+  <div class="d2">
+    @if (cookie.get("userAccToken")) {
+      <div class="user" routerLink="register" (click)="goPhonePage()">
+        <i class="fa-regular fa-user"></i>
+      </div>
+    }
+    @else {
+      <div class="user" (click)="openSign()">
+        <i class="fa-regular fa-user"></i>
+      </div>
+    }
+    <div class="cart">
+      <div class="cartWithlength">
+        <i class="fa-solid fa-cart-shopping" (click)="openManu()"></i>
+        <p class="lengthP">{{ cartItemRaod }}</p>
+      </div>
+      <p class="price">0,00ლ</p>
+    </div>
+  </div>
+</div>
+<div class="bacground" [class.showThisBack]="burger"></div>

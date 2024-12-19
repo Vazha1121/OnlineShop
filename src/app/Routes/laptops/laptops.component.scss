@@ -21,7 +21,7 @@ section {
       background-color: white;
       padding: 15px;
       .rangeFilter {
-        border-bottom: 1px solid #E4E4E4;
+        border-bottom: 1px solid #e4e4e4;
         padding-bottom: 10px;
         .price-input-container {
           width: 100%;
@@ -86,42 +86,42 @@ section {
           }
         }
       }
-      .brandFilter{
+      .brandFilter {
         width: 300px;
         margin-top: 20px;
         display: flex;
         flex-direction: column;
         gap: 10px;
-        ul{
+        ul {
           list-style: none;
           display: flex;
           flex-direction: column;
           gap: 5px;
-          margin-left: -30px;
-          li{
+          li {
             cursor: pointer;
             font-size: 17px;
           }
-          li:hover{
+          li:hover {
             color: #1c61e7;
           }
         }
       }
     }
-    .products{
+    .products {
       padding-inline: 30px;
-      .prods{
+      .prods {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        .p1{
+        .p1 {
           display: flex;
           flex-wrap: wrap;
           justify-content: start;
           gap: 20px;
           .card {
             width: 250px;
+            height: 400px;
             border: none;
             display: flex;
             flex-direction: column;
@@ -129,7 +129,7 @@ section {
             justify-content: space-between;
             transition: 0.2s;
             padding-bottom: 10px;
-            cursor: pointer;
+            border-radius: 0.5em;
             .imDiv {
               width: 100%;
               height: 250px;
@@ -141,7 +141,7 @@ section {
                 height: 150px;
               }
             }
-            .title{
+            .title {
               width: 90%;
             }
             .stock {
@@ -151,10 +151,10 @@ section {
               gap: 10px;
               margin: auto;
             }
-            .price{
+            .price {
               width: 90%;
             }
-            .buttDiv{
+            .buttDiv {
               width: 100%;
               display: flex;
               align-items: center;
@@ -172,20 +172,20 @@ section {
                 align-items: center;
                 overflow: hidden;
                 i{
-                  transform: translateY(25px);
+                  transform: translateY(30px);
                   transition: 0.2s;
                 }
                 span{
-                  transform: translateY(10px);
+                  transform: translateY(15px);
                   transition: 0.2s;
                 }
               }
-              button:hover{
+              button:hover {
                 span{
                   transform: translateY(-30px);
                 }
                 i{
-                  transform: translateY(-10px);
+                  transform: translateY(0px);
                 }
               }
             }
@@ -196,7 +196,7 @@ section {
             transition: 0.2s;
           }
         }
-        .paginate{
+        .paginate {
           width: 100%;
           height: 50px;
           margin: auto;
@@ -205,7 +205,7 @@ section {
           justify-content: center;
           gap: 10px;
           margin-top: 50px;
-          button{
+          button {
             width: 35px;
             height: 35px;
             border: none;
@@ -213,7 +213,7 @@ section {
             background-color: white;
             color: black;
           }
-          button:focus{
+          button:focus {
             background-color: #1c61e7;
             color: white;
           }

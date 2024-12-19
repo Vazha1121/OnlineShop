@@ -3,6 +3,8 @@ import { Component,OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ApiService } from '../../Services/api.service';
+import { HttpHeaders } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -12,11 +14,13 @@ import { ApiService } from '../../Services/api.service';
   styleUrl: './laptops.component.scss',
 })
 export class LaptopsComponent implements OnInit {
-  constructor(public api: ApiService) {}
+  constructor(public api: ApiService, public cookie: CookieService) {}
   ngOnInit(): void {
     this.brandsApi();
     this.getProds(this.pageID);
+    this.getInfo()
   }
+ 
   public minPrice: number = 0;
   public maxPrice: number = 6000;
   public priceGap: number = 100;
@@ -40,15 +44,7 @@ export class LaptopsComponent implements OnInit {
     }
   }
 
-  public brandUl: any;
-  brandsApi() {
-    this.api.brands().subscribe({
-      next: (data: any) => {
-        this.brandUl = data;
-      },
-      error: (err: any) => console.log(err),
-    });
-  }
+ 
   public id: any = 1;
   public pageSize: any = 12;
   public prods: any;
@@ -63,10 +59,66 @@ export class LaptopsComponent implements OnInit {
       },
     });
   }
-
+  getInfo(){
+    this.api.gadamzidi.subscribe((data:any) => {
+      console.log(data);
+      this.prods = data.products
+    })
+    }
+    /* brands */
+    public brandUl: any;
+  public brandO: any;
+  brandsApi() {
+    this.api.brands().subscribe({
+      next: (data: any) => {
+        this.brandUl = data;
+        this.brandO = [
+          {
+            brand: this.brandUl[0],
+          },
+          {
+            brand: this.brandUl[1],
+          },
+          {
+            brand: this.brandUl[3],
+          },
+          {
+            brand: this.brandUl[6],
+          },
+          {
+            brand: this.brandUl[7],
+          },
+          {
+            brand: this.brandUl[8],
+          },
+          {
+            brand: this.brandUl[9],
+          },
+          {
+            brand: this.brandUl[10],
+          },
+          {
+            brand: this.brandUl[11],
+          }
+        ];
+      },
+      error: (err: any) => console.log(err),
+    });
+  }
+  public onlyThissBrand: any;
+  showThisBrand(id: any) {
+    this.api.getOnlyBrand(this.brandO[id].brand).subscribe({
+      next: (data: any) => {
+        this.prods = data.products;
+      },
+    });
+  }
   public cartData:any;
   addInCart(){
-    this.api.getCart().subscribe({
+    const headers = new HttpHeaders({ 
+      accept: 'application/json',
+      'Authorization': `Bearer ${this.cookie.get("userAccToken")}`})
+    this.api.getCart(headers).subscribe({
       next: (data:any) => {
         console.log(data);
         this.cartData = data;

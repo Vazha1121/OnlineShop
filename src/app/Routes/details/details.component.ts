@@ -35,6 +35,8 @@ public detailPrice:any
         this.images = data.images
         this.bigPhoto = data.images[0]
         this.detailPrice = data.price.discountPercentage
+        console.log(data._id);
+        
       }
     })
   }
@@ -42,4 +44,12 @@ public detailPrice:any
    this.bigPhoto = photo;
     
   }
+  public raod:number = 1;
+  plusQuant(){
+    this.raod++
+  }
+  minusQuant(){
+    this.raod--
+  }
+  public paymentImg: string = 'https://gstore.ge/wp-content/uploads/2022/12/payment-methods-1.jpg.webp'
 }

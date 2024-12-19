@@ -84,4 +84,44 @@ section .enter button {
   border-radius: 0.5em;
   font-size: 13px;
   font-weight: 600;
+}
+
+.userProf {
+  max-width: 1440px;
+  width: 100%;
+}
+.userProf .profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.userProf .profile .imgDiv {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1C61E7;
+}
+.userProf .profile .imgDiv img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.userProf .profile .infoDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.userProf .logOut button {
+  width: 100px;
+  height: 42px;
+  border: none;
+  border-radius: 0.5em;
+  background-color: #1C61E7;
+  color: white;
+  font-weight: 600;
 }/*# sourceMappingURL=registration.component.css.map */

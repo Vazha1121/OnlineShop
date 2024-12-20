@@ -34,4 +34,28 @@ section .pirobebiDiv p {
 }
 section .pirobebiDiv span {
   font-weight: 600;
+}
+
+@media screen and (max-width: 900px) {
+  section .d1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  section .pirobebiDiv {
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 390px) {
+  section .d1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  section .d1 img {
+    width: 100%;
+  }
+  section .pirobebiDiv {
+    padding: 20px;
+  }
 }/*# sourceMappingURL=warranty.component.css.map */

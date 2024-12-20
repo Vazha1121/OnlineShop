@@ -101,6 +101,7 @@ export class LaptopsComponent implements OnInit {
             brand: this.brandUl[11],
           }
         ];
+        
       },
       error: (err: any) => console.log(err),
     });
@@ -110,6 +111,7 @@ export class LaptopsComponent implements OnInit {
     this.api.getOnlyBrand(this.brandO[id].brand).subscribe({
       next: (data: any) => {
         this.prods = data.products;
+        this.openBurgerFilter = false
       },
     });
   }
@@ -129,5 +131,11 @@ export class LaptopsComponent implements OnInit {
       }
     })
   }
+  public openBurgerFilter!:boolean
+
+  openFilter(){
+    this.openBurgerFilter = !this.openBurgerFilter
+  }
+
 
 }

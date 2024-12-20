@@ -261,7 +261,7 @@
   justify-content: right;
 }
 .addCart .wholeCart {
-  width: 400px;
+  width: 300px;
   height: 100vh;
   background-color: white;
 }
@@ -277,6 +277,51 @@
 }
 .addCart .wholeCart .close i {
   cursor: pointer;
+}
+.addCart .wholeCart .cartProds {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block-end: 100px;
+}
+.addCart .wholeCart .cartProds .prodsCard {
+  padding: 20px;
+}
+.addCart .wholeCart .cartProds .totalPrice {
+  border-top: 1px solid black;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.addCart .wholeCart .cartProds .totalPrice .jami {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.addCart .wholeCart .cartProds .totalPrice .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.addCart .wholeCart .cartProds .totalPrice .buttons button {
+  width: 270px;
+  height: 42px;
+  border: none;
+  border-radius: 0.5em;
+}
+.addCart .wholeCart .cartProds .totalPrice .buttons .seeCart {
+  background-color: #E1EBFF;
+  color: #1c61e7;
+  font-weight: 600;
+}
+.addCart .wholeCart .cartProds .totalPrice .buttons .buy {
+  background-color: #1c61e7;
+  color: white;
+  font-weight: 600;
 }
 
 .mobile_menu {

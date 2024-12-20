@@ -26,7 +26,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
     this.category();
-    this.addInCart();
+    this.getCartData()
   }
   public logo: any = 'https://gstore.ge/wp-content/uploads/2023/10/1111-1.png';
   public categ: any;
@@ -78,21 +78,6 @@ export class NavComponent implements OnInit {
   }
   public cartData: any;
   public cartItemRaod!: string;
-  addInCart() {
-    const headers = new HttpHeaders({
-      accept: 'application/json',
-      Authorization: `Bearer ${this.cookie.get('userAccToken')}`,
-    });
-    this.apiServ.getCart(headers).subscribe({
-      next: (data: any) => {
-        this.cartData = data.products;
-        console.log(data.products);
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
-  }
   public searchedText: any;
   public searchedItem: any;
   searchItem() {
@@ -114,5 +99,26 @@ export class NavComponent implements OnInit {
   public burger!: boolean;
   showBurgerBar() {
     this.burger = !this.burger;
+  }
+  /* cartData */
+public totalPrice: any = []
+  getCartData(){
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+      Authorization: `Bearer ${this.cookie.get('userAccToken')}`,
+    });
+    this.apiServ.getCart(headers).subscribe({
+      next: (data:any) => {
+        this.cartData = data.products;
+        this.totalPrice = [data.total.price]
+        console.log(this.cartData);
+        
+        
+      },
+      error: (err:any) => {
+        console.log(err);
+        
+      }
+    })
   }
 }

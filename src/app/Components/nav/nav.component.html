@@ -42,7 +42,14 @@
 <!-- nav2 -->
 <nav class="nav2">
   <div class="search2">
-    <input type="search" name="" id="" placeholder="Search for products" (keydown.enter)="searchItem()" [(ngModel)]="searchedText"/>
+    <input
+      type="search"
+      name=""
+      id=""
+      placeholder="Search for products"
+      (keydown.enter)="searchItem()"
+      [(ngModel)]="searchedText"
+    />
     <i class="fa-solid fa-magnifying-glass" (click)="searchItem()"></i>
   </div>
   <div class="inDiv">
@@ -61,14 +68,13 @@
         <p>GE</p>
       </div>
       @if (cookie.get("userAccToken")) {
-        <div class="user" routerLink="register">
-          <i class="fa-regular fa-user"></i>
-        </div>
-      }
-      @else {
-        <div class="user" (click)="openSign()">
-          <i class="fa-regular fa-user"></i>
-        </div>
+      <div class="user" routerLink="register">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      } @else {
+      <div class="user" (click)="openSign()">
+        <i class="fa-regular fa-user"></i>
+      </div>
       }
       <div class="cart">
         <div class="cartWithlength">
@@ -86,7 +92,33 @@
       <span>Shopping cart</span>
       <i class="fa-solid fa-x"></i>
     </div>
-    <div class="prods">@for (item of cartData; track $index) { }</div>
+    <div class="cartProds">
+      @for (item of cartData; track $index){
+      <div class="prodsCard">
+        <div class="cartItemDiv">
+          <div class="imgDiv">ddd</div>
+          <div class="title">
+            <div class="desc"></div>
+            <div class="categ"></div>
+            <div class="quantity"></div>
+            <div class="price"></div>
+          </div>
+        </div>
+      </div>
+      }
+      <div class="totalPrice">
+        <div class="jami">
+          <h3>ჯამი:</h3>
+          @for (item of totalPrice; track $index) {
+          <span>{{ item.current }}</span>
+          }
+        </div>
+        <div class="buttons">
+          <button class="seeCart">კალათის ნახვა</button>
+          <button class="buy">შეძენა</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="signIn" [class.showSignIn]="showSignIn">
@@ -128,21 +160,21 @@
     <ul>
       <li routerLink="laptops" (click)="goPhonePage()">ლეპტოპები</li>
       <li routerLink="phones" (click)="goPhonePage()">ტელეფონები</li>
+      <li routerLink="delivery" (click)="goPhonePage()">მიწოდეება</li>
       <li routerLink="warranty" (click)="goPhonePage()">გარანტია</li>
-      <li routerLink="contact" (click)="goPhonePage()" >კონტაქტი</li>
+      <li routerLink="contact" (click)="goPhonePage()">კონტაქტი</li>
     </ul>
   </div>
   <div class="d2">
     @if (cookie.get("userAccToken")) {
-      <div class="user" routerLink="register" (click)="goPhonePage()">
-        <i class="fa-regular fa-user"></i>
-      </div>
-    }
-    @else {
-      <div class="user" (click)="openSign()">
-        <i class="fa-regular fa-user"></i>
-      </div>
-      
+    <div class="user" routerLink="register" (click)="goPhonePage()">
+      <i class="fa-regular fa-user"></i>
+    </div>
+    } @else {
+    <div class="user" (click)="openSign()">
+      <i class="fa-regular fa-user"></i>
+    </div>
+
     }
     <div class="cart">
       <div class="cartWithlength">

@@ -96,4 +96,9 @@ export class PhonesComponent implements OnInit {
       this.prods = data.products
     })
     }
+    public openBurgerFilter!:boolean
+
+  openFilter(){
+    this.openBurgerFilter = !this.openBurgerFilter
+  }
 }

@@ -5,11 +5,11 @@
     </div>
     <div class="banksProds">
       <div class="banks">
-        <img [src]="banks" alt="" />
+        <img [src]="banks" alt=""  loading="eager"/>
       </div>
       <div class="lapsTels">
         <div>
-          <img [src]="laptop" alt="" />
+          <img [src]="laptop" alt=""  loading="eager"/>
           <div class="naxva">
             <h4>Laptops</h4>
             <p>შენი სამუშაო სივრცე</p>
@@ -17,7 +17,7 @@
           </div>
         </div>
         <div>
-          <img [src]="telef" alt="" />
+          <img [src]="telef" alt=""  loading="eager"/>
           <div class="naxva">
             <h4>Smartphones</h4>
             <p>შენი ახალი სმარტფონი</p>
@@ -42,7 +42,7 @@
           (click)="seeDetails(item._id)"
           routerLink="details/{{ item._id }}"
         >
-          <img [src]="item.thumbnail" alt="" class="image" />
+          <img [src]="item.thumbnail" alt="" class="image" loading="eager"/>
         </div>
         <div class="title">
           <p>{{ item.title }}</p>
@@ -100,7 +100,7 @@
           (click)="seeDetails(item._id)"
           routerLink="details/{{ item._id }}"
         >
-          <img [src]="item.thumbnail" alt="" class="image" />
+          <img [src]="item.thumbnail" alt="" class="image"  loading="eager"/>
         </div>
         <div class="title">
           <p>{{ item.title }}</p>

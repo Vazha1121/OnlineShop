@@ -8,6 +8,7 @@ section {
 }
 section .contact1 {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
 }
@@ -62,7 +63,6 @@ section .contact2 {
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 340px;
 }
 section .contact2 .m1 {
   flex: 2;
@@ -90,4 +90,27 @@ section .contact2 .m2 span {
 section .contact2 .m2 span div {
   display: flex;
   gap: 10px;
+}
+
+@media screen and (max-width: 750px) {
+  section {
+    gap: 50px;
+  }
+  section .contact1 {
+    width: 100%;
+    flex-direction: column;
+    gap: 50px;
+  }
+  section .contact1 .c1 {
+    width: 90%;
+    margin: auto;
+  }
+  section .contact2 {
+    width: 100%;
+    flex-direction: column;
+    gap: 50px;
+  }
+  section .contact2 .m1 {
+    width: 90%;
+  }
 }/*# sourceMappingURL=contact.component.css.map */

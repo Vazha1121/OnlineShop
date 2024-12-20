@@ -116,7 +116,7 @@ public totalPrice: any = []
         
       },
       error: (err:any) => {
-        console.log(err);
+        console.log("register/logim");
         
       }
     })

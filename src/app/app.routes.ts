@@ -19,6 +19,6 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegistrationComponent},
   { path: 'privacypolicy', component: PrivacyPolicyComponent },
-  { path: 'details/:id', component: DetailsComponent },
+  /* { path: 'details/:id', component: DetailsComponent }, */
   { path: '**', component: ErrorPageComponent },
 ];

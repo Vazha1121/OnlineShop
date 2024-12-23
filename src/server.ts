@@ -7,9 +7,6 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { enableProdMode } from '@angular/core';
-enableProdMode()
-
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
@@ -66,10 +63,3 @@ if (isMainModule(import.meta.url)) {
  * The request handler used by the Angular CLI (dev-server and during build).
  */
 export const reqHandler = createNodeRequestHandler(app);
-export function getPrerenderParams(){
-  return[
-    {id: '1'},
-    {id: '2'},
-    {id: '3'}
-  ]
-}

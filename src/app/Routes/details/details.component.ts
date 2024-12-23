@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ApiService } from '../../Services/api.service';
 
@@ -11,16 +11,24 @@ import { ApiService } from '../../Services/api.service';
 export class DetailsComponent implements OnInit{
   constructor(public actRoute: ActivatedRoute, public api: ApiService) {
   }
-
+route = inject(ActivatedRoute)
 ngOnInit(): void {
   this.getPara()
   this.prodDetail()
+  
 }
+
+
 public dataId: string | undefined;
 getPara(){
-  this.actRoute.params.subscribe((data: Params) => {
+  /* this.actRoute.params.subscribe((data: Params) => {
     this.dataId = data['id']
-  })
+  }) */
+    this.route.params.subscribe((params) => {
+      console.log(params);
+      this.dataId = params['id']
+      
+    })
 }
 
 public images: any;

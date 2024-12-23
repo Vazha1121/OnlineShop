@@ -1,15 +1,20 @@
-import { RenderMode, ServerRoute } from '@angular/ssr';
+import { inject } from '@angular/core';
+import { PrerenderFallback, RenderMode, ServerRoute } from '@angular/ssr';
+import { PostService } from './Services/post.service';
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: '', renderMode: RenderMode.Prerender
+    path: 'details/:id',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      const post = inject(PostService);
+      const ids = await post.getPosts();
+      return ids.map((id) => ({ id}));
+    },
+    fallback: PrerenderFallback.Server,
   },
- /*  {
-    path:'details/:id', 
-    renderMode: RenderMode.Server,
-  }, */
   {
     path: '**',
-    renderMode: RenderMode.Prerender
-  }
+    renderMode: RenderMode.Prerender,
+  },
 ];

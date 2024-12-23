@@ -5,7 +5,6 @@ import { ApiService } from '../../Services/api.service';
 import { RouterModule } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-home',

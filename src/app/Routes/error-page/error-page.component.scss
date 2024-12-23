@@ -1,0 +1,58 @@
+section{
+    width: 100%;
+    height: 50vh;
+    margin: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .div4{
+        margin: auto;
+        h1{
+            width: 100%;
+            color: #f1f1ff;
+            font-size: 320px;
+            position: relative;
+        }
+        h1:after{
+            content: 'NOT FOUND';
+            color: #1C61E7;
+            font-size: 80px;
+            left: 12%;
+            top: 40%;
+            z-index: 0;
+            position: absolute;
+        }
+    }
+    h3{
+        text-align: center;
+        padding: 20px;
+    }
+}
+@media screen and (max-width:605px) {
+    section{
+        .div4{
+            h1{
+                font-size: 230px;
+            }
+            h1:after{
+                font-size: 50px;
+                left: 14%;
+            }
+        }
+    }
+}
+@media screen and (max-width:450px) {
+    section{
+        .div4{
+            h1{
+                font-size: 150px;
+            }
+            h1:after{
+                font-size: 30px;
+                left: 17%;
+            }
+        }
+    }
+}

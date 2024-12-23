@@ -42,7 +42,6 @@ public detailPrice:any
   }
   chngPhoto(photo:any){
    this.bigPhoto = photo;
-    
   }
   public raod:number = 1;
   plusQuant(){

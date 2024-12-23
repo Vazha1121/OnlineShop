@@ -75,15 +75,15 @@
     </section>
     } @else{
     <section>
-      <form class="register">
+      <form class="register" [formGroup]="signIn" (ngSubmit)="onSubmit()">
         <h4>შესვლა</h4>
         <div class="inputs">
           <label for="">ელფოსტის მისამართი <span>*</span></label>
-          <input type="text" />
+          <input type="text"  formControlName="email"/>
         </div>
         <div class="inputs">
           <label for="">პაროლი<span>*</span></label>
-          <input type="password" />
+          <input type="password" formControlName="password"/>
         </div>
         <button class="regbtn">შესვლა</button>
         <div class="remember">

@@ -73,8 +73,13 @@ section {
                 -webkit-appearance: none;
                 margin: 0;
               }
+              
             }
+            
+              
+            
           }
+          
         }
         .slider-container {
           height: 2px;
@@ -188,6 +193,17 @@ section {
                 -webkit-appearance: none;
                 margin: 0;
               }
+            }
+            .searchBtn2{
+              width: 80px;
+              height: 32px;
+              border: none;
+              color: #1c61e7;
+              background-color: #dae0ee;
+              border-radius: 5px;
+              font-weight: 600;
+              font-size: 10px;
+              margin-left: 15px;
             }
           }
         }

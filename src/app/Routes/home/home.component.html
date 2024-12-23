@@ -60,13 +60,13 @@
           <p>{{ item.price.current | currency }}</p>
         </div>
         <div class="buttDiv">
-          @if(item.stock > 1){ @if(kalata){
+          @if(item.stock > 1){ @if(cartData == false){
           <button (click)="createCart(item._id)">
             <span>კალათაში დამატება</span>
             <i class="fa-solid fa-cart-shopping"></i>
           </button>
           }@else {
-          <button (click)="addCart(item._id)">
+          <button (click)="addCart(item._id)" (click)="seeDetails(item._id)">
             <span>კალათაში დამატება</span>
             <i class="fa-solid fa-cart-shopping"></i>
           </button>
@@ -118,7 +118,7 @@
           <p>{{ item.price.current | currency }}</p>
         </div>
         <div class="buttDiv">
-          @if(item.stock > 1){ @if(kalata){
+          @if(item.stock > 1){ @if(cartData == false){
           <button (click)="createCart(item._id)">
             <span>კალათაში დამატება</span>
             <i class="fa-solid fa-cart-shopping"></i>

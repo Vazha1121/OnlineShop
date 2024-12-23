@@ -195,6 +195,17 @@ section .mainProds .filter .rangeFilter .price-input-container .price-input .pri
   -webkit-appearance: none;
   margin: 0;
 }
+section .mainProds .filter .rangeFilter .price-input-container .price-input .searchBtn2 {
+  width: 80px;
+  height: 32px;
+  border: none;
+  color: #1c61e7;
+  background-color: #dae0ee;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 10px;
+  margin-left: 15px;
+}
 section .mainProds .filter .rangeFilter .slider-container {
   height: 2px;
   position: relative;

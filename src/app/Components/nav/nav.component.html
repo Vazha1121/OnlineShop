@@ -3,7 +3,7 @@
     <div class="burger">
       <i class="fa-solid fa-bars" (click)="showBurgerBar()"></i>
     </div>
-    <div class="logo" routerLink="/">
+    <div class="logo" routerLink="/" (click)="goPhonePage()">
       <img [src]="logo" alt="" />
     </div>
     <div class="language2">
@@ -79,46 +79,78 @@
       <div class="cart">
         <div class="cartWithlength">
           <i class="fa-solid fa-cart-shopping" (click)="openManu()"></i>
-          <p class="lengthP">{{ cartItemRaod }}</p>
+          @if(cartProdLength){
+            <p class="lengthP">{{cartProdLength }}</p>
+          }@else {
+            <p class="lengthP">0</p>
+          }
         </div>
-        <p class="price">0,00ლ</p>
+        @if(dicountedPriceOnNav == 0){
+          <br>
+          <p>{{dicountedPriceOnNav}} ₾</p>
+        }@else{
+          <p>{{currentPriceOnNav}} ₾</p>
+        }
       </div>
     </div>
   </div>
 </nav>
+<!-- cart -->
 <div class="addCart" [class.mobile_menu]="menuValue">
   <div class="wholeCart">
     <div class="close" (click)="openManu()">
       <span>Shopping cart</span>
       <i class="fa-solid fa-x"></i>
     </div>
-    <div class="cartProds">
-      @for (item of cartData; track $index){
-      <div class="prodsCard">
-        <div class="cartItemDiv">
-          <div class="imgDiv">ddd</div>
-          <div class="title">
-            <div class="desc"></div>
-            <div class="categ"></div>
-            <div class="quantity"></div>
-            <div class="price"></div>
+    @if(cartData == true && cartProdLength > 0){
+      <div class="cartProds">
+        @for (item of combinedCartProducts; track $index){
+        <div class="prodsCard">
+          <div class="cartItemDiv">
+            <div class="imgDiv">
+              <img [src]="item.productDetails.thumbnail" alt="" />
+            </div>
+            <div class="title">
+              <span class="firstSpan">{{ item.productDetails.title }}</span>
+              <span>{{ item.productDetails.category.name }}</span>
+              <div>
+                @if(item.beforeDiscountPrice == item.pricePerQuantity) {
+                <span class="beforePrice">
+                  <span>1x</span> {{ item.beforeDiscountPrice }} ₾
+                </span>
+                }@else {
+                <span class="beforePrice">
+                  <span>1x</span> {{ item.beforeDiscountPrice }} ₾
+                </span>
+                }
+              </div>
+            </div>
+            <div class="deleteItem" (click)="deleteItem(item.productDetails._id)">
+              <i class="fa-solid fa-x"></i>
+            </div>
+          </div>
+        </div>
+  
+        }
+        <div class="lastDiv">
+          <div class="jamiDiv">
+            <p>ჯამი:</p> 
+            <span>{{totalPrice}} ₾</span>
+          </div>
+          <div class="btnDiv">
+            <button>გასუფთავება</button>
+            <button (click)="makeCheckOut()">შეძენა</button>
           </div>
         </div>
       </div>
-      }
-      <div class="totalPrice">
-        <div class="jami">
-          <h3>ჯამი:</h3>
-          @for (item of totalPrice; track $index) {
-          <span>{{ item.current }}</span>
-          }
-        </div>
-        <div class="buttons">
-          <button class="seeCart">კალათის ნახვა</button>
-          <button class="buy">შეძენა</button>
-        </div>
+    }@else {
+      <div class="emptyCart">
+        <img [src]="emptyCartIcon" alt="">
+        <p>თქვენ კალათში პროდუქტები არ არის.</p>
+        <button (click)="goOnProducts()">Return to Shop</button>
       </div>
-    </div>
+
+    }
   </div>
 </div>
 <div class="signIn" [class.showSignIn]="showSignIn">
@@ -150,7 +182,9 @@
       <div class="createAcc">
         <i class="fa-regular fa-user"></i>
         <span>No account yet?</span>
-        <span routerLink="register">Create An Account</span>
+        <span routerLink="register" (click)="goPhonePage()"
+          >Create An Account</span
+        >
       </div>
     </div>
   </div>

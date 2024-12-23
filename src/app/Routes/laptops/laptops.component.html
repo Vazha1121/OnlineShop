@@ -1,13 +1,16 @@
 <section>
   <div class="route">
-    <div class="routeDiv"><span routerLink="/">მთავარი</span> <span>/</span> <span>ლეპტოპები</span></div>
+    <div class="routeDiv">
+      <span routerLink="/">მთავარი</span> <span>/</span> <span>ლეპტოპები</span>
+    </div>
     <div class="burgerFilterDiv">
-        <div class="iconDiv" (click)="openFilter()">
-          <i class="fa-solid fa-bars"></i><p>ფილტრი</p>
-        </div>
+      <div class="iconDiv" (click)="openFilter()">
+        <i class="fa-solid fa-bars"></i>
+        <p>ფილტრი</p>
+      </div>
     </div>
   </div>
-  <div class="burgerFilterSection" [class.openBurgerSection]="openBurgerFilter" >
+  <div class="burgerFilterSection" [class.openBurgerSection]="openBurgerFilter">
     <div class="closeDiv">
       <i class="fa-solid fa-x" (click)="openFilter()"></i>
     </div>
@@ -71,19 +74,23 @@
           </div>
         </div>
       </div>
-      
+
       <div class="brandFilter">
         <span>ბრენდები:</span>
         <ul>
-         @for (item of brandO; track $index) {
-            <li (click)="showThisBrand($index)">{{ item.brand }}</li>
-            }
+          @for (item of brandO; track $index) {
+          <li (click)="showThisBrand($index)">{{ item.brand }}</li>
+          }
         </ul>
       </div>
       <div class="rating"></div>
     </div>
   </div>
-  <div class="burgerBlackBack" [class.addback]="openBurgerFilter" (click)="openFilter()"></div>
+  <div
+    class="burgerBlackBack"
+    [class.addback]="openBurgerFilter"
+    (click)="openFilter()"
+  ></div>
   <div class="mainProds">
     <div class="filter">
       <div class="rangeFilter">
@@ -100,20 +107,18 @@
             <input
               type="range"
               [(ngModel)]="minPrice"
-              (input)="onRangeChange()"
               class="min-range"
               min="0"
-              max="6000"
+              max="2000"
               value="2500"
               step="1"
             />
             <input
               type="range"
               [(ngModel)]="maxPrice"
-              (input)="onRangeChange()"
               class="max-range"
               min="0"
-              max="6000"
+              max="2000"
               value="8500"
               step="1"
             />
@@ -141,64 +146,80 @@
                 (input)="onInputChange()"
               />
               <span>ლ</span>
+              
             </div>
+            <button class="searchBtn2" (click)="onRangeChange()">გაფილტრვა</button>
           </div>
         </div>
       </div>
-      
+
       <div class="brandFilter">
         <span>ბრენდები:</span>
         <ul>
-         @for (item of brandO; track $index) {
-            <li (click)="showThisBrand($index)">{{ item.brand }}</li>
-            }
+          @for (item of brandO; track $index) {
+          <li (click)="showThisBrand($index)">{{ item.brand }}</li>
+          }
         </ul>
       </div>
       <div class="rating"></div>
     </div>
-    
+
     <div class="products">
       <div class="sorts"></div>
       <div class="prods">
         <div class="p1">
-          @for (item of prods; track $index) {
-            @if(item.category.id == 1){
-              <div class="card">
-                <div class="imDiv" [style.width]="'200px'">
-                  <img [src]="item.thumbnail" alt="" class="image" />
-                </div>
-                <div class="title">
-                  <p>{{ item.title }}</p>
-                </div>
-                <div class="stock">
-                  @if(item.stock > 1){
-                  <i class="fa-solid fa-check" [style.color]="'green'"></i>
-                  <span [style.color]="'green'">მარაგშია</span>
-                  } @else {
-                  <i class="fa-solid fa-x" [style.color]="'red'"></i>
-                  <span [style.color]="'red'">არ არის მარაგში</span>
-                  }
-                </div>
-                <div class="price">
-                  <p>{{ item.price.current | currency }}</p>
-                </div>
-                <div class="buttDiv">
-                  <button>
-                    <span>კალათაში დამატება</span>
-                    <i class="fa-solid fa-cart-shopping"></i>
-                  </button>
-                </div>
-              </div>
-            }
-          }
-          @empty {
-            <h1>Item Not Found</h1>
+          @for (item of prods; track $index) { @if(item.category.id == 1){
+          <div class="card">
+            <div
+              class="imDiv"
+              [style.width]="'200px'"
+              (click)="seeDetails(item._id)"
+              routerLink="../details/{{ item._id }}"
+            >
+              <img [src]="item.thumbnail" alt="" class="image" />
+            </div>
+            <div class="title">
+              <p>{{ item.title }}</p>
+            </div>
+            <div class="stock">
+              @if(item.stock > 1){
+              <i class="fa-solid fa-check" [style.color]="'green'"></i>
+              <span [style.color]="'green'">მარაგშია</span>
+              } @else {
+              <i class="fa-solid fa-x" [style.color]="'red'"></i>
+              <span [style.color]="'red'">არ არის მარაგში</span>
+              }
+            </div>
+            <div class="price">
+              <p>{{ item.price.current | currency }}</p>
+            </div>
+            <div class="buttDiv">
+              <button>
+                <span>კალათაში დამატება</span>
+                <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          } } @empty {
+          <h1>Item Not Found</h1>
           }
         </div>
         <div class="paginate">
-          @for (item of pageRaod; track $index) {
-          <button (click)="getProds($index)" [class.blueBtn]="pageID == $index + 1">{{ item }}</button>
-          }
+          @if(minPrice > 0){ @for (item of pageRaod; track $index) {
+          <button
+            (click)="GetFilteredPage($index)"
+            [class.blueBtn]="pageID == $index + 1"
+          >
+            {{ item }}
+          </button>
+          } }@else { @for (item of pageRaod; track $index) {
+          <button
+            (click)="getProds($index)"
+            [class.blueBtn]="pageID == $index + 1"
+          >
+            {{ item }}
+          </button>
+          } }
         </div>
       </div>
     </div>

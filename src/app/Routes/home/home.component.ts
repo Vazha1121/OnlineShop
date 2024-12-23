@@ -19,7 +19,7 @@ constructor(public api: ApiService, public cookie: CookieService){ }
 ngOnInit(): void {
   this.showLaptops()
   this.showTelphone()
-
+  this.getCart()
 }
 
   public slide = [
@@ -34,10 +34,7 @@ public laps:any;
 showLaptops() {
   this.api.getCategoryWithId(1,1,6).subscribe({
     next: (data:any) => {
-      console.log(data);
       this.laps = data.products;
-      console.log(this.laps);
-      
     },
     error: (err:any)=> {
       console.log(err);
@@ -50,15 +47,17 @@ public mobiles :any;
 showTelphone(){
  this.api.getWithBrandName("apple",1,10).subscribe({
   next: (data:any) => {
-    console.log(data);
     this.mobiles = data.products;
     
   }
  })   
 }
 seeDetails(id:any){
-  console.log(id);
-  
+  this.api.getProdId(id).subscribe({
+    next: (data:any) => {
+      this.api.bSubject.next(data)
+    }
+  })
 }
 public kalata!: boolean;
 public kalataRaiod:any;
@@ -71,7 +70,7 @@ createCart(id:any){
     "quantity": 1
   },headers).subscribe({
     next: (data:any) => {
-      console.log(data);
+      window.location.href = window.location.href
       this.kalata = true
       this.kalataRaiod = data.total.quantity;
 
@@ -91,13 +90,26 @@ addCart(id:any){
     "quantity": 1
   },headers).subscribe({
     next: (data:any) => {
-      console.log(data);
       this.kalataRaiod = data.total.quantity;
-      console.log(this.kalataRaiod);
-      
+      window.location.href = window.location.href
     },
     error: (err:any) => {
       alert('კალათა უკვე შექმნილია')
+    }
+  })
+}
+public cartData!:boolean;
+getCart(){
+  const headers = new HttpHeaders({ 
+    accept: 'application/json',
+    'Authorization': `Bearer ${this.cookie.get("userAccToken")}`})
+  this.api.getCart(headers).subscribe({
+    next: (data:any) => {
+      this.cartData = true;
+    },
+    error: (err:any) => {
+      console.log("შექმენით კალათა");
+      this.cartData = false
     }
   })
 }

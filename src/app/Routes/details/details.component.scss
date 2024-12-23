@@ -168,3 +168,100 @@ section{
         }
     }
 }
+@media screen and (max-width:1200px) {
+    section{
+        .lapDiv{
+            .car{
+                .carousel2{
+                    img{
+                        width: 200px;
+                    }
+                }
+            }
+            .about{
+                .addCart{
+                    button:nth-child(3){
+                        width: 100%;
+                    }
+                    button:nth-child(2){
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:900px){
+    section{
+        
+        .lapDiv{
+            flex-direction: column;
+            .car{
+                flex-direction: column;
+                gap: 50px;
+                .carousel1{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    img{
+                        width: 10%;
+                        flex: 1;
+                    }
+                }
+                .carousel2{
+                    align-items: center;
+                    justify-content: center;
+                    img{
+                        width: 400px;
+                    }
+                }
+            }
+            .about{
+                .addCart{
+                    button:nth-child(3){
+                        width: 100%;
+                    }
+                    button:nth-child(2){
+                        width: 100%;
+                    }
+                }
+                .paymentMethods{
+                    width: 100%;
+                    flex-direction: column;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:400px){
+    section{
+        
+        .lapDiv{
+            flex-direction: column;
+            .car{
+                flex-direction: column;
+                gap: 50px;
+                .carousel1{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    img{
+                        width: 10%;
+                        flex: 1;
+                    }
+                }
+                .carousel2{
+                    align-items: center;
+                    justify-content: center;
+                    img{
+                        width: 300px;
+                    }
+                }
+            }
+            
+        }
+    }
+}

@@ -13,7 +13,7 @@ export class PhonesComponent implements OnInit {
   constructor(public api: ApiService) {
     this.brandsApi();
     this.getProds(this.pageID);
-    this.getInfo()
+    this.getInfo();
   }
 
   ngOnInit(): void {}
@@ -90,15 +90,25 @@ export class PhonesComponent implements OnInit {
         },
       });
   }
-  getInfo(){
-    this.api.gadamzidi.subscribe((data:any) => {
+/* goOnDetailPage */
+seeDetails(id:any){
+  this.api.getProdId(id).subscribe({
+    next: (data:any) => {
+      this.api.bSubject.next(data)
       console.log(data);
-      this.prods = data.products
-    })
+      
     }
-    public openBurgerFilter!:boolean
+  })
+}
+  getInfo() {
+    this.api.gadamzidi.subscribe((data: any) => {
+      console.log(data);
+      this.prods = data.products;
+    });
+  }
+  public openBurgerFilter!: boolean;
 
-  openFilter(){
-    this.openBurgerFilter = !this.openBurgerFilter
+  openFilter() {
+    this.openBurgerFilter = !this.openBurgerFilter;
   }
 }

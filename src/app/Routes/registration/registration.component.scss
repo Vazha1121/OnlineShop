@@ -127,3 +127,8 @@ section {
     }
   }
 }
+@media screen and (max-width:900px){
+  section{
+    flex-direction: column-reverse;
+  }
+}

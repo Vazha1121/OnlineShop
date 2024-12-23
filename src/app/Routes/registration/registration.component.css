@@ -124,4 +124,10 @@ section .enter button {
   background-color: #1C61E7;
   color: white;
   font-weight: 600;
+}
+
+@media screen and (max-width: 900px) {
+  section {
+    flex-direction: column-reverse;
+  }
 }/*# sourceMappingURL=registration.component.css.map */

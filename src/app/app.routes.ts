@@ -8,6 +8,7 @@ import { ContactComponent } from './Routes/contact/contact.component';
 import { RegistrationComponent } from './Routes/registration/registration.component';
 import { PrivacyPolicyComponent } from './Routes/privacy-policy/privacy-policy.component';
 import { DetailsComponent } from './Routes/details/details.component';
+import { ErrorPageComponent } from './Routes/error-page/error-page.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,4 +20,5 @@ export const routes: Routes = [
   { path: 'register', component: RegistrationComponent},
   { path: 'privacypolicy', component: PrivacyPolicyComponent },
   { path: 'details/:id', component: DetailsComponent },
+  { path: '**', component: ErrorPageComponent },
 ];

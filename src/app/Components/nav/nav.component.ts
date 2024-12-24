@@ -43,9 +43,6 @@ export class NavComponent implements OnInit {
       this.productID = [];
       this.combinedCartProducts = [];
       this.userCart = data;
-      console.log(this.userCart);
-      
-      this.userCart = data;
       this.totalPrice = this.userCart.total.price.current;
       this.totalProducts = this.userCart.total.quantity;
       this.currentPriceOnNav = data.total.price.current;
@@ -120,6 +117,7 @@ export class NavComponent implements OnInit {
         this.myRefreshToken = data.refresh_token;
         this.cookie.set('userAccToken', this.myAccessToken);
         this.showSignIn = false;
+        window.location.href = window.location.href
       },
     });
   }

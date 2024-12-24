@@ -29,20 +29,18 @@
             <input
               type="range"
               [(ngModel)]="minPrice"
-              (input)="onRangeChange()"
               class="min-range"
               min="0"
-              max="6000"
+              max="2000"
               value="2500"
               step="1"
             />
             <input
               type="range"
               [(ngModel)]="maxPrice"
-              (input)="onRangeChange()"
               class="max-range"
               min="0"
-              max="6000"
+              max="2000"
               value="8500"
               step="1"
             />
@@ -70,7 +68,9 @@
                 (input)="onInputChange()"
               />
               <span>ლ</span>
+              
             </div>
+            <button class="searchBtn2" (click)="onRangeChange()">გაფილტრვა</button>
           </div>
         </div>
       </div>
@@ -194,10 +194,25 @@
               <p>{{ item.price.current | currency }}</p>
             </div>
             <div class="buttDiv">
-              <button>
-                <span>კალათაში დამატება</span>
-                <i class="fa-solid fa-cart-shopping"></i>
-              </button>
+              @if(item.stock > 1){ @if(cartData == false){
+                <button (click)="createCart(item._id)">
+                  <span>კალათაში დამატება</span>
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+                }@else {
+                <button (click)="addCart(item._id)" (click)="seeDetails(item._id)">
+                  <span>კალათაში დამატება</span>
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+                } } @else{
+                <button
+                (click)="seeDetails(item._id)"
+                routerLink="../details/{{ item._id }}"
+                >
+                  <span>ვრცლად</span>
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                }
             </div>
           </div>
           } } @empty {

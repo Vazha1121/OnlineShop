@@ -32,7 +32,7 @@ export class LaptopsComponent implements OnInit {
     this.api.interfaceProd().subscribe({
       next: (data: FullProduct) => {
         console.log(data);
-        this.interFaceData = data.products
+        this.interFaceData = data.products;
       },
     });
   }
@@ -87,7 +87,6 @@ export class LaptopsComponent implements OnInit {
     this.api.getProdId(id).subscribe({
       next: (data: any) => {
         this.api.bSubject.next(data);
-        console.log(data);
       },
     });
   }
@@ -160,19 +159,72 @@ export class LaptopsComponent implements OnInit {
       },
     });
   }
-  public cartData: any;
-  addInCart() {
+  /* addItemInCart */
+  public openCart!: boolean;
+  public kalata!: boolean;
+  public kalataRaiod: any;
+  createCart(id: any) {
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+      Authorization: `Bearer ${this.cookie.get('userAccToken')}`,
+    });
+    this.api
+      .createCart(
+        {
+          id: id,
+          quantity: 1,
+        },
+        headers
+      )
+      .subscribe({
+        next: (data: any) => {
+          this.kalata = true;
+          this.kalataRaiod = data.total.quantity;
+          this.api.bSubject3.next((this.openCart = true));
+          this.api.bSubject2.next(data);
+        },
+        error: (err: any) => {
+          alert('კალათა უკვე შექმნილია');
+        },
+      });
+  }
+  addCart(id: any) {
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+      Authorization: `Bearer ${this.cookie.get('userAccToken')}`,
+    });
+    this.api
+      .addCart(
+        {
+          id: id,
+          quantity: 1,
+        },
+        headers
+      )
+      .subscribe({
+        next: (data: any) => {
+          this.kalataRaiod = data.total.quantity;
+          this.api.bSubject3.next((this.openCart = true));
+          this.api.bSubject2.next(data);
+        },
+        error: (err: any) => {
+          alert('კალათა უკვე შექმნილია');
+        },
+      });
+  }
+  public cartData!: boolean;
+  getCart() {
     const headers = new HttpHeaders({
       accept: 'application/json',
       Authorization: `Bearer ${this.cookie.get('userAccToken')}`,
     });
     this.api.getCart(headers).subscribe({
       next: (data: any) => {
-        console.log(data);
-        this.cartData = data;
+        this.cartData = true;
       },
       error: (err: any) => {
-        console.log(err);
+        console.log('შექმენით კალათა');
+        this.cartData = false;
       },
     });
   }

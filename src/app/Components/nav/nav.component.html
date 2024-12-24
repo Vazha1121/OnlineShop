@@ -3,7 +3,7 @@
     <div class="burger">
       <i class="fa-solid fa-bars" (click)="showBurgerBar()"></i>
     </div>
-    <div class="logo" routerLink="/" (click)="goPhonePage()">
+    <div class="logo" routerLink="/" (click)="goGstore()">
       <img [src]="logo" alt="" />
     </div>
     <div class="language2">
@@ -55,8 +55,8 @@
   <div class="inDiv">
     <div class="d1">
       <ul>
-        <li routerLink="laptops" (click)="goPhonePage()">ლეპტოპები</li>
-        <li routerLink="phones" (click)="goPhonePage()">ტელეფონები</li>
+        <li routerLink="laptops" (click)="goLapPage()" [class.blueLi]="blueLI">ლეპტოპები</li>
+        <li routerLink="phones" (click)="goPhonePage()" [class.blueLi]="blueLi1">ტელეფონები</li>
         <li routerLink="warranty" (click)="goPhonePage()">გარანტია</li>
         <li routerLink="delivery" (click)="goPhonePage()">მიწოდეება</li>
         <li routerLink="contact" (click)="goPhonePage()">კონტაქტი</li>
@@ -102,55 +102,57 @@
       <span>Shopping cart</span>
       <i class="fa-solid fa-x"></i>
     </div>
-    @if(cartData == true && cartProdLength > 0){
-      <div class="cartProds">
-        @for (item of combinedCartProducts; track $index){
-        <div class="prodsCard">
-          <div class="cartItemDiv">
-            <div class="imgDiv">
-              <img [src]="item.productDetails.thumbnail" alt="" />
-            </div>
-            <div class="title">
-              <span class="firstSpan">{{ item.productDetails.title }}</span>
-              <span>{{ item.productDetails.category.name }}</span>
-              <div>
-                @if(item.beforeDiscountPrice == item.pricePerQuantity) {
-                <span class="beforePrice">
-                  <span>1x</span> {{ item.beforeDiscountPrice }} ₾
-                </span>
-                }@else {
-                <span class="beforePrice">
-                  <span>1x</span> {{ item.beforeDiscountPrice }} ₾
-                </span>
-                }
+      @if(cartData == true && cartProdLength > 0){
+        <div class="cartProds">
+          @for (item of combinedCartProducts; track $index){
+          <div class="prodsCard">
+            <div class="cartItemDiv">
+              <div class="imgDiv">
+                <img [src]="item.productDetails.thumbnail" alt="" />
+              </div>
+              <div class="title">
+                <span class="firstSpan">{{ item.productDetails.title }}</span>
+                <span>{{ item.productDetails.category.name }}</span>
+                <div>
+                  @if(item.beforeDiscountPrice == item.pricePerQuantity) {
+                  <span class="beforePrice">
+                    <span>1x</span> {{ item.beforeDiscountPrice }} ₾
+                  </span>
+                  }@else {
+                  <span class="beforePrice">
+                    <span>1x</span> {{ item.beforeDiscountPrice }} ₾
+                  </span>
+                  }
+                </div>
+              </div>
+              <div class="deleteItem" (click)="deleteItem(item.productDetails._id)">
+                <i class="fa-solid fa-x"></i>
               </div>
             </div>
-            <div class="deleteItem" (click)="deleteItem(item.productDetails._id)">
-              <i class="fa-solid fa-x"></i>
+          </div>
+    
+        }
+          <div class="lastDiv">
+            <div class="jamiDiv">
+              <p>ჯამი:</p> 
+              <span>{{totalPrice}} ₾</span>
+            </div>
+            <div class="btnDiv">
+              <button>გასუფთავება</button>
+              <button (click)="makeCheckOut()">შეძენა</button>
             </div>
           </div>
         </div>
-  
-        }
-        <div class="lastDiv">
-          <div class="jamiDiv">
-            <p>ჯამი:</p> 
-            <span>{{totalPrice}} ₾</span>
-          </div>
-          <div class="btnDiv">
-            <button>გასუფთავება</button>
-            <button (click)="makeCheckOut()">შეძენა</button>
-          </div>
+      }@else {
+        <div class="emptyCart">
+          <img [src]="emptyCartIcon" alt="">
+          <p>თქვენ კალათში პროდუქტები არ არის.</p>
+          <button (click)="goOnProducts()">Return to Shop</button>
         </div>
-      </div>
-    }@else {
-      <div class="emptyCart">
-        <img [src]="" alt="">
-        <p>თქვენ კალათში პროდუქტები არ არის.</p>
-        <button (click)="goOnProducts()">Return to Shop</button>
-      </div>
-
-    }
+  
+      }
+    
+    
   </div>
 </div>
 <div class="signIn" [class.showSignIn]="showSignIn">
@@ -189,10 +191,11 @@
     </div>
   </div>
 </div>
+<!-- burgerBar -->
 <div class="burgerBar" [class.showThisBruger]="burger">
   <div class="d1">
     <ul>
-      <li routerLink="laptops" (click)="goPhonePage()">ლეპტოპები</li>
+      <li  routerLink="laptops" (click)="goPhonePage()" [class.blueLi]="blueLI">ლეპტოპები</li>
       <li routerLink="phones" (click)="goPhonePage()">ტელეფონები</li>
       <li routerLink="delivery" (click)="goPhonePage()">მიწოდეება</li>
       <li routerLink="warranty" (click)="goPhonePage()">გარანტია</li>
@@ -213,9 +216,18 @@
     <div class="cart">
       <div class="cartWithlength">
         <i class="fa-solid fa-cart-shopping" (click)="openManu()"></i>
-        <p class="lengthP">{{ cartItemRaod }}</p>
+        @if(cartProdLength){
+          <p class="lengthP">{{cartProdLength }}</p>
+        }@else {
+          <p class="lengthP">0</p>
+        }
       </div>
-      <p class="price">0,00ლ</p>
+      @if(dicountedPriceOnNav == 0){
+        <br>
+        <p>{{dicountedPriceOnNav}} ₾</p>
+      }@else{
+        <p>{{currentPriceOnNav}} ₾</p>
+      }
     </div>
   </div>
 </div>

@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../Services/api.service';
 import { HttpHeaders } from '@angular/common/http';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
-  imports: [RouterModule,ReactiveFormsModule],
+  imports: [RouterModule,ReactiveFormsModule,FormsModule],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss',
 })
@@ -98,5 +98,49 @@ export class RegistrationComponent implements OnInit {
         alert("გადაამოწმეთ მეილი და პაროლი")
       }
     });
+  }
+  /* registration */
+  public register: FormGroup = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    age: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+    address: new FormControl(''),
+    phone: new FormControl(''),
+    zipcode: new FormControl(''),
+    avatar: new FormControl(''),
+    gender: new FormControl('')
+  })
+  makeRegister(){
+    this.api.signUp(this.register.value).subscribe({
+      next: (data:any) => {
+        console.log(data);
+        
+      }
+    })
+    
+  }
+  /* changePass */
+  public chngPass: FormGroup = new FormGroup({
+    oldPassword: new FormControl(''),
+    newPassword: new FormControl('')
+  })
+  makePassChange(){
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+      Authorization: `Bearer ${this.cookie.get('userAccToken')}`,
+    });
+    const oldNewPass = {
+      oldPass: "Vazha1121",
+      newPass: "Vajiko2003@"
+    }
+    this.api.changePassword(this.chngPass.value,headers).subscribe({
+      next: (data:any) => {
+        console.log(data);
+        console.log(this.chngPass);
+        
+      }
+    })
   }
 }

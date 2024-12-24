@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ApiService } from '../../Services/api.service';
+import { HttpHeaders } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-phones',
   imports: [RouterModule, FormsModule, CommonModule],
@@ -10,7 +12,7 @@ import { ApiService } from '../../Services/api.service';
   styleUrl: './phones.component.scss',
 })
 export class PhonesComponent implements OnInit {
-  constructor(public api: ApiService) {
+  constructor(public api: ApiService, public cookie: CookieService) {
     this.brandsApi();
     this.getProds(this.pageID);
     this.getInfo();
@@ -19,14 +21,15 @@ export class PhonesComponent implements OnInit {
   ngOnInit(): void {}
 
   public minPrice: number = 0;
-  public maxPrice: number = 6000;
+  public maxPrice: number = 2000;
   public priceGap: number = 100;
   get progressLeft(): string {
-    return `${(this.minPrice / 6000) * 100}%`;
+    return `${(this.minPrice / 2000) * 100}%`;
   }
   get progressRight(): string {
-    return `${100 - (this.maxPrice / 6000) * 100}%`;
+    return `${100 - (this.maxPrice / 2000) * 100}%`;
   }
+
   onInputChange() {
     if (this.maxPrice - this.minPrice < this.priceGap) {
       this.minPrice = Math.min(this.minPrice, this.maxPrice - this.priceGap);
@@ -34,9 +37,36 @@ export class PhonesComponent implements OnInit {
     }
   }
   onRangeChange() {
+    this.api
+      .filterWithPriceForPhone(this.minPrice, this.maxPrice, this.pageID)
+      .subscribe({
+        next: (data: any) => {
+          console.log(data);
+          console.log(this.minPrice);
+          console.log(this.maxPrice);
+
+          if (this.minPrice > -1) {
+            this.prods = data.products;
+          }
+        },
+      });
     if (this.maxPrice - this.minPrice < this.priceGap) {
       this.maxPrice = this.minPrice + this.priceGap;
+      this.minPrice = this.maxPrice - this.priceGap;
     }
+  }
+  GetFilteredPage(id: any) {
+    id++;
+    this.pageID = id;
+    this.api
+      .filterWithPrice(this.minPrice, this.maxPrice, this.pageID)
+      .subscribe({
+        next: (data: any) => {
+          if (this.minPrice > 0) {
+            this.prods = data.products;
+          }
+        },
+      });
   }
   public brandUl: any;
   public brandO: any;
@@ -44,6 +74,8 @@ export class PhonesComponent implements OnInit {
     this.api.brands().subscribe({
       next: (data: any) => {
         this.brandUl = data;
+        console.log(data);
+
         this.brandO = [
           {
             brand: this.brandUl[1],
@@ -90,16 +122,83 @@ export class PhonesComponent implements OnInit {
         },
       });
   }
-/* goOnDetailPage */
-seeDetails(id:any){
-  this.api.getProdId(id).subscribe({
-    next: (data:any) => {
-      this.api.bSubject.next(data)
-      console.log(data);
-      
-    }
-  })
-}
+  /* addItemInCart */
+  public openCart!: boolean;
+  public kalata!: boolean;
+  public kalataRaiod: any;
+  createCart(id: any) {
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+      Authorization: `Bearer ${this.cookie.get('userAccToken')}`,
+    });
+    this.api
+      .createCart(
+        {
+          id: id,
+          quantity: 1,
+        },
+        headers
+      )
+      .subscribe({
+        next: (data: any) => {
+          this.kalataRaiod = data.total.quantity;
+          this.api.bSubject3.next((this.openCart = true));
+          this.api.bSubject2.next(data);
+        },
+        error: (err: any) => {
+          alert('კალათა უკვე შექმნილია');
+        },
+      });
+  }
+  addCart(id: any) {
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+      Authorization: `Bearer ${this.cookie.get('userAccToken')}`,
+    });
+    this.api
+      .addCart(
+        {
+          id: id,
+          quantity: 1,
+        },
+        headers
+      )
+      .subscribe({
+        next: (data: any) => {
+          this.kalataRaiod = data.total.quantity;
+          this.api.bSubject3.next((this.openCart = true));
+          this.api.bSubject2.next(data);
+        },
+        error: (err: any) => {
+          alert('კალათა უკვე შექმნილია');
+        },
+      });
+  }
+  public cartData!: boolean;
+  getCart() {
+    const headers = new HttpHeaders({
+      accept: 'application/json',
+      Authorization: `Bearer ${this.cookie.get('userAccToken')}`,
+    });
+    this.api.getCart(headers).subscribe({
+      next: (data: any) => {
+        this.cartData = true;
+      },
+      error: (err: any) => {
+        console.log('შექმენით კალათა');
+        this.cartData = false;
+      },
+    });
+  }
+  /* goOnDetailPage */
+  seeDetails(id: any) {
+    this.api.getProdId(id).subscribe({
+      next: (data: any) => {
+        this.api.bSubject.next(data);
+        console.log(data);
+      },
+    });
+  }
   getInfo() {
     this.api.gadamzidi.subscribe((data: any) => {
       console.log(data);

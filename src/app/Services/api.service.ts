@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { FullProduct } from '../full-product';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ export class ApiService {
   public gadamzidi: Subject<any> = new Subject()
   public bSubject:BehaviorSubject<any> = new BehaviorSubject('')
   public bSubject2:BehaviorSubject<any> = new BehaviorSubject('')
+  public bSubject3:BehaviorSubject<any> = new BehaviorSubject('')
   public loading: BehaviorSubject<any> = new BehaviorSubject(false);
   startLoader() {
     this.loading.next(true);
@@ -85,8 +87,8 @@ interfaceProd(){
   signIn(header:any){
     return this.http.post(`https://api.everrest.educata.dev/auth/sign_in`, header)
   }
-  signUp(header:any){
-    return this.http.post(`https://api.everrest.educata.dev/auth/sign_up`, header)
+  signUp(body:any){
+    return this.http.post(`https://api.everrest.educata.dev/auth/sign_up`, body)
   }
   /* cart API */
 
@@ -120,8 +122,14 @@ interfaceProd(){
   searchWithKeyword(keyword:any){
     return this.http.get(`https://api.everrest.educata.dev/shop/products/search?keywords=${keyword}`)
   }
+  changePassword(body: FormGroup, header:any){
+    return this.http.patch(`https://api.everrest.educata.dev/auth/change_password`,body,{headers:header})
+  }
   /* searchAPI */
   filterWithPrice(minPrice:any, maxPrice:any,page:any){
     return this.http.get(`https://api.everrest.educata.dev/shop/products/search?page_index=${page}&page_size=12&price_min=${minPrice}&price_max=${maxPrice}`)
+  }
+  filterWithPriceForPhone(minPrice:any, maxPrice:any,page:any){
+    return this.http.get(`https://api.everrest.educata.dev/shop/products/search?page_index=${page}&page_size=25&price_min=${minPrice}&price_max=${maxPrice}`)
   }
 }

@@ -283,6 +283,27 @@ section {
           flex-wrap: wrap;
           justify-content: start;
           gap: 20px;
+          .card:nth-child(1){
+            .imDiv{
+              .image{
+                width: 130px;
+              }
+            }
+          }
+          .card:nth-child(2){
+            .imDiv{
+              .image{
+                width: 130px;
+              }
+            }
+          }
+          .card:nth-child(3){
+            .imDiv{
+              .image{
+                width: 130px;
+              }
+            }
+          }
           .card {
             width: 250px;
             height: 400px;
@@ -410,17 +431,39 @@ section {
             justify-content: space-between;
             margin: auto;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             .card{
               width: 150px;
               margin: 0;
               .imDiv{
                 .image{
-                  width: 70%;
+                  width: 150px;
                   height: 100px;
                 }
               }
             }
+            .card:nth-child(1){
+              .imDiv{
+                .image{
+                  width: 110px;
+                }
+              }
+            }
+            .card:nth-child(2){
+              .imDiv{
+                .image{
+                  width: 110px;
+                }
+              }
+            }
+            .card:nth-child(3){
+              .imDiv{
+                .image{
+                  width: 110px;
+                }
+              }
+            }
+            
           }
         }
       }

@@ -5,11 +5,11 @@
     </div>
     <div class="banksProds">
       <div class="banks">
-        <img [src]="banks" alt=""  loading="eager"/>
+        <img [src]="banks" alt="" loading="eager" />
       </div>
       <div class="lapsTels">
         <div class="lap1" routerLink="laptops">
-          <img [src]="laptop" alt=""  loading="eager"/>
+          <img [src]="laptop" alt="" loading="eager" />
           <div class="naxva">
             <h4>Laptops</h4>
             <p>შენი სამუშაო სივრცე</p>
@@ -17,7 +17,7 @@
           </div>
         </div>
         <div routerLink="phones">
-          <img [src]="telef" alt=""  loading="eager"/>
+          <img [src]="telef" alt="" loading="eager" />
           <div class="naxva">
             <h4>Smartphones</h4>
             <p>შენი ახალი სმარტფონი</p>
@@ -42,7 +42,7 @@
           (click)="seeDetails(item._id)"
           routerLink="details/{{ item._id }}"
         >
-          <img [src]="item.thumbnail" alt="" class="image" loading="eager"/>
+          <img [src]="item.thumbnail" alt="" class="image" loading="eager" />
         </div>
         <div class="title">
           <p>{{ item.title }}</p>
@@ -89,18 +89,18 @@
 <section class="sec2">
   <div class="main">
     <div class="d1">
-      <h2>კვირის მოთხოვნადი ლეპტოპები</h2>
+      <h2>ოფიციალური 2 წლიანი გარანტიით, სრულიად ახალი Apple</h2>
     </div>
     <div class="d2">
       @for (item of mobiles; track $index) {
-      <div class="card">
+      <div class="card phone">
         <div
           class="imDiv"
           [style.width]="'200px'"
           (click)="seeDetails(item._id)"
           routerLink="details/{{ item._id }}"
         >
-          <img [src]="item.thumbnail" alt="" class="image"  loading="eager"/>
+          <img [src]="item.thumbnail" alt="" class="image" loading="eager"/>
         </div>
         <div class="title">
           <p>{{ item.title }}</p>

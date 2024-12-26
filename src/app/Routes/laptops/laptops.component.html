@@ -219,23 +219,26 @@
           <h1>Item Not Found</h1>
           }
         </div>
-        <div class="paginate">
-          @if(minPrice > 0){ @for (item of pageRaod; track $index) {
-          <button
-            (click)="GetFilteredPage($index)"
-            [class.blueBtn]="pageID == $index + 1"
-          >
-            {{ item }}
-          </button>
-          } }@else { @for (item of pageRaod; track $index) {
-          <button
-            (click)="getProds($index)"
-            [class.blueBtn]="pageID == $index + 1"
-          >
-            {{ item }}
-          </button>
-          } }
-        </div>
+        
+        @if(pageLimit > 12){
+          <div class="paginate">
+            @if(minPrice > 0){ @for (item of pageRaod; track $index) {
+            <button
+              (click)="GetFilteredPage($index)"
+              [class.blueBtn]="pageID == $index + 1"
+            >
+              {{ item }}
+            </button>
+            } }@else { @for (item of pageRaod; track $index) {
+            <button
+              (click)="getProds($index)"
+              [class.blueBtn]="pageID == $index + 1"
+            >
+              {{ item }}
+            </button>
+            } }
+          </div>
+        }
       </div>
     </div>
   </div>

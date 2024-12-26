@@ -79,6 +79,17 @@ section .burgerFilterSection .filter .rangeFilter .price-input-container .price-
   -webkit-appearance: none;
   margin: 0;
 }
+section .burgerFilterSection .filter .rangeFilter .price-input-container .price-input .searchBtn2 {
+  width: 80px;
+  height: 32px;
+  border: none;
+  color: #1c61e7;
+  background-color: #dae0ee;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 10px;
+  margin-left: 15px;
+}
 section .burgerFilterSection .filter .rangeFilter .slider-container {
   height: 2px;
   position: relative;
@@ -195,6 +206,17 @@ section .mainProds .filter .rangeFilter .price-input-container .price-input .pri
   -webkit-appearance: none;
   margin: 0;
 }
+section .mainProds .filter .rangeFilter .price-input-container .price-input .searchBtn2 {
+  width: 80px;
+  height: 32px;
+  border: none;
+  color: #1c61e7;
+  background-color: #dae0ee;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 10px;
+  margin-left: 15px;
+}
 section .mainProds .filter .rangeFilter .slider-container {
   height: 2px;
   position: relative;
@@ -267,6 +289,15 @@ section .mainProds .products .prods .p1 {
   flex-wrap: wrap;
   justify-content: start;
   gap: 20px;
+}
+section .mainProds .products .prods .p1 .card:nth-child(1) .imDiv .image {
+  width: 130px;
+}
+section .mainProds .products .prods .p1 .card:nth-child(2) .imDiv .image {
+  width: 130px;
+}
+section .mainProds .products .prods .p1 .card:nth-child(3) .imDiv .image {
+  width: 130px;
 }
 section .mainProds .products .prods .p1 .card {
   width: 250px;
@@ -389,15 +420,24 @@ section .mainProds .products .prods .paginate button:focus {
     justify-content: space-between;
     margin: auto;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
   section .mainProds .products .prods .p1 .card {
     width: 150px;
     margin: 0;
   }
   section .mainProds .products .prods .p1 .card .imDiv .image {
-    width: 70%;
+    width: 150px;
     height: 100px;
+  }
+  section .mainProds .products .prods .p1 .card:nth-child(1) .imDiv .image {
+    width: 110px;
+  }
+  section .mainProds .products .prods .p1 .card:nth-child(2) .imDiv .image {
+    width: 110px;
+  }
+  section .mainProds .products .prods .p1 .card:nth-child(3) .imDiv .image {
+    width: 110px;
   }
 }
 @media screen and (max-width: 420px) {

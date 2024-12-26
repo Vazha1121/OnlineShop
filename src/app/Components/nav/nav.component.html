@@ -55,11 +55,33 @@
   <div class="inDiv">
     <div class="d1">
       <ul>
-        <li routerLink="laptops" (click)="goLapPage()" [class.blueLi]="blueLI">ლეპტოპები</li>
-        <li routerLink="phones" (click)="goPhonePage()" [class.blueLi]="blueLi1">ტელეფონები</li>
-        <li routerLink="warranty" (click)="goPhonePage()">გარანტია</li>
-        <li routerLink="delivery" (click)="goPhonePage()">მიწოდეება</li>
-        <li routerLink="contact" (click)="goPhonePage()">კონტაქტი</li>
+        <li routerLink="laptops" (click)="goLapPage()" [class.blueLi]="blueLI">
+          ლეპტოპები
+        </li>
+        <li
+          routerLink="phones"
+          (click)="goPhonePage()"
+          [class.blueLi]="blueLi1"
+        >
+          ტელეფონები
+        </li>
+        <li
+          routerLink="warranty"
+          (click)="goWarrany()"
+          [class.blueLi]="blueLi2"
+        >
+          გარანტია
+        </li>
+        <li
+          routerLink="delivery"
+          (click)="goDelivery()"
+          [class.blueLi]="blueLi3"
+        >
+          მიწოდება
+        </li>
+        <li routerLink="contact" (click)="goContact()" [class.blueLi]="blueLi4">
+          კონტაქტი
+        </li>
       </ul>
     </div>
     <div class="d2">
@@ -69,92 +91,103 @@
       </div>
       @if (cookie.get("userAccToken")) {
       <div class="user" routerLink="register">
-        <i class="fa-regular fa-user"></i>
+        <img [src]="userImage" alt="" />
+        <p>{{ userName }}</p>
       </div>
       } @else {
       <div class="user" (click)="openSign()">
         <i class="fa-regular fa-user"></i>
+        <p>ავტორიზაცია</p>
       </div>
+
       }
       <div class="cart">
         <div class="cartWithlength">
           <i class="fa-solid fa-cart-shopping" (click)="openManu()"></i>
           @if(cartProdLength){
-            <p class="lengthP">{{cartProdLength }}</p>
+          <p class="lengthP">{{ cartProdLength }}</p>
           }@else {
-            <p class="lengthP">0</p>
+          <p class="lengthP">0</p>
           }
         </div>
         @if(dicountedPriceOnNav == 0){
-          <br>
-          <p>{{dicountedPriceOnNav}} ₾</p>
-        }@else{
-          <p>{{currentPriceOnNav}} ₾</p>
-        }
+        <br />
+        <p>{{ dicountedPriceOnNav }}₾</p>
+        }@else if(currentPriceOnNav){
+        <p>{{ currentPriceOnNav }}₾</p>
+        }@else { 0₾ }
       </div>
     </div>
   </div>
 </nav>
 <!-- cart -->
+<div
+  class="background"
+  [class.showThisBack]="menuValue"
+  (click)="closeBlack()"
+></div>
 <div class="addCart" [class.mobile_menu]="menuValue">
   <div class="wholeCart">
     <div class="close" (click)="openManu()">
       <span>Shopping cart</span>
       <i class="fa-solid fa-x"></i>
     </div>
-      @if(cartData == true && cartProdLength > 0){
-        <div class="cartProds">
-          @for (item of combinedCartProducts; track $index){
-          <div class="prodsCard">
-            <div class="cartItemDiv">
-              <div class="imgDiv">
-                <img [src]="item.productDetails.thumbnail" alt="" />
-              </div>
-              <div class="title">
-                <span class="firstSpan">{{ item.productDetails.title }}</span>
-                <span>{{ item.productDetails.category.name }}</span>
-                <div>
-                  @if(item.beforeDiscountPrice == item.pricePerQuantity) {
-                  <span class="beforePrice">
-                    <span>1x</span> {{ item.beforeDiscountPrice }} ₾
-                  </span>
-                  }@else {
-                  <span class="beforePrice">
-                    <span>1x</span> {{ item.beforeDiscountPrice }} ₾
-                  </span>
-                  }
-                </div>
-              </div>
-              <div class="deleteItem" (click)="deleteItem(item.productDetails._id)">
-                <i class="fa-solid fa-x"></i>
-              </div>
+    @if(cartData == true && cartProdLength > 0){
+    <div class="cartProds">
+      @for (item of combinedCartProducts; track $index){
+      <div class="prodsCard">
+        <div class="cartItemDiv">
+          <div class="imgDiv">
+            <img [src]="item.productDetails.thumbnail" alt="" />
+          </div>
+          <div class="title">
+            <span class="firstSpan">{{ item.productDetails.title }}</span>
+            <span>{{ item.productDetails.category.name }}</span>
+            <div>
+              @if(item.beforeDiscountPrice == item.pricePerQuantity) {
+              <span class="beforePrice">
+                <span>1x</span> {{ item.beforeDiscountPrice }} ₾
+              </span>
+              }@else {
+              <span class="beforePrice">
+                <span>1x</span> {{ item.beforeDiscountPrice }} ₾
+              </span>
+              }
             </div>
           </div>
-    
-        }
-          <div class="lastDiv">
-            <div class="jamiDiv">
-              <p>ჯამი:</p> 
-              <span>{{totalPrice}} ₾</span>
-            </div>
-            <div class="btnDiv">
-              <button>გასუფთავება</button>
-              <button (click)="makeCheckOut()">შეძენა</button>
-            </div>
+          <div class="deleteItem" (click)="deleteItem(item.productDetails._id)">
+            <i class="fa-solid fa-x"></i>
           </div>
         </div>
-      }@else {
-        <div class="emptyCart">
-          <img [src]="emptyCartIcon" alt="">
-          <p>თქვენ კალათში პროდუქტები არ არის.</p>
-          <button (click)="goOnProducts()">Return to Shop</button>
-        </div>
-  
+      </div>
+
       }
-    
-    
+      <div class="lastDiv">
+        <div class="jamiDiv">
+          <p>ჯამი:</p>
+          <span>{{ totalPrice }} ₾</span>
+        </div>
+        <div class="btnDiv">
+          <button>გასუფთავება</button>
+          <button (click)="makeCheckOut()">შეძენა</button>
+        </div>
+      </div>
+    </div>
+    }@else {
+    <div class="emptyCart">
+      <img [src]="emptyCartIcon" alt="" />
+      <p>თქვენ კალათში პროდუქტები არ არის.</p>
+      <button (click)="goOnProducts()">Return to Shop</button>
+    </div>
+
+    }
   </div>
 </div>
+<div
+  class="background"
+  [class.showThisBack]="showSignIn"
+  (click)="closeBlack()"
+></div>
 <div class="signIn" [class.showSignIn]="showSignIn">
   <div class="login">
     <div class="in">
@@ -195,21 +228,25 @@
 <div class="burgerBar" [class.showThisBruger]="burger">
   <div class="d1">
     <ul>
-      <li  routerLink="laptops" (click)="goPhonePage()" [class.blueLi]="blueLI">ლეპტოპები</li>
+      <li routerLink="laptops" (click)="goPhonePage()" [class.blueLi]="blueLI">
+        ლეპტოპები
+      </li>
       <li routerLink="phones" (click)="goPhonePage()">ტელეფონები</li>
-      <li routerLink="delivery" (click)="goPhonePage()">მიწოდეება</li>
+      <li routerLink="delivery" (click)="goPhonePage()">მიწოდება</li>
       <li routerLink="warranty" (click)="goPhonePage()">გარანტია</li>
       <li routerLink="contact" (click)="goPhonePage()">კონტაქტი</li>
     </ul>
   </div>
   <div class="d2">
     @if (cookie.get("userAccToken")) {
-    <div class="user" routerLink="register" (click)="goPhonePage()">
-      <i class="fa-regular fa-user"></i>
+    <div class="user" routerLink="register" (click)="closeBlack()">
+      <img [src]="userImage" alt="" />
+      <p>{{ userName }}</p>
     </div>
     } @else {
     <div class="user" (click)="openSign()">
       <i class="fa-regular fa-user"></i>
+      <p>ავტორიზაცია</p>
     </div>
 
     }
@@ -217,18 +254,22 @@
       <div class="cartWithlength">
         <i class="fa-solid fa-cart-shopping" (click)="openManu()"></i>
         @if(cartProdLength){
-          <p class="lengthP">{{cartProdLength }}</p>
+        <p class="lengthP">{{ cartProdLength }}</p>
         }@else {
-          <p class="lengthP">0</p>
+        <p class="lengthP">0</p>
         }
       </div>
       @if(dicountedPriceOnNav == 0){
-        <br>
-        <p>{{dicountedPriceOnNav}} ₾</p>
-      }@else{
-        <p>{{currentPriceOnNav}} ₾</p>
-      }
+      <br />
+      <p>{{ dicountedPriceOnNav }} ₾</p>
+      }@else if(currentPriceOnNav){
+      <p>{{ currentPriceOnNav }}₾</p>
+      }@else { 0₾ }
     </div>
   </div>
 </div>
-<div class="bacground" [class.showThisBack]="burger"></div>
+<div
+  class="bacground"
+  [class.showThisBack]="burger"
+  (click)="closeBlack()"
+></div>

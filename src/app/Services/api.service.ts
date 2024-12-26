@@ -9,7 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ApiService {
   constructor(public http: HttpClient) {}
-  public gadamzidi: Subject<any> = new Subject()
+  public gadamzidi: BehaviorSubject<any> = new BehaviorSubject('')
   public bSubject:BehaviorSubject<any> = new BehaviorSubject('')
   public bSubject2:BehaviorSubject<any> = new BehaviorSubject('')
   public bSubject3:BehaviorSubject<any> = new BehaviorSubject('')

@@ -29,12 +29,24 @@
         <p>სრულიად ახალი 2 წლიანი გარანტიით</p>
       </div>
       <div class="addCart">
+        @if(dataStock > 0){
         <div class="quantity">
           <span (click)="minusQuant()">-</span> {{ raod }}
           <span (click)="plusQuant()">+</span>
         </div>
-        <button>კალათში დამატება</button>
+        @if(dataStock > 1){ @if(cartData == false){
+          <button (click)="createCart()">
+            <span>კალათაში დამატება</span>
+          </button>
+          }@else {
+          <button (click)="addCart()">
+            <span>კალათაში დამატება</span>
+          </button>
+          }}
         <button>ყიდვა</button>
+        }@else {
+        <p class="noStock">მარაგში არ არის</p>
+        }
       </div>
       <div class="share">
         <div>

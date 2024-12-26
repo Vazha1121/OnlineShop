@@ -134,6 +134,10 @@ section .lapDiv .about .addCart button:nth-child(3) {
   font-weight: 600;
   cursor: pointer;
 }
+section .lapDiv .about .addCart .noStock {
+  font-size: 20px;
+  color: red;
+}
 section .lapDiv .about .share {
   width: 100%;
   display: flex;

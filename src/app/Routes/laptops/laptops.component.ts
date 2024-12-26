@@ -19,8 +19,10 @@ export class LaptopsComponent implements OnInit {
   ngOnInit(): void {
     this.brandsApi();
     this.getProds(this.pageID);
-    this.getInfo();
+/*     this.getInfo(); */
     this.showAllCardInterface();
+    console.log(this.prods.length);
+    
   }
 
   public minPrice: number = 0;
@@ -31,7 +33,6 @@ export class LaptopsComponent implements OnInit {
   showAllCardInterface() {
     this.api.interfaceProd().subscribe({
       next: (data: FullProduct) => {
-        console.log(data);
         this.interFaceData = data.products;
       },
     });
@@ -57,7 +58,7 @@ export class LaptopsComponent implements OnInit {
           console.log(data);
           console.log(this.minPrice);
           console.log(this.maxPrice);
-
+          this.pageLimit = data.total
           if (this.minPrice > 0) {
             this.prods = data.products;
           }
@@ -75,6 +76,7 @@ export class LaptopsComponent implements OnInit {
       .filterWithPrice(this.minPrice, this.maxPrice, this.pageID)
       .subscribe({
         next: (data: any) => {
+          this.pageLimit = data.total
           if (this.minPrice > 0) {
             this.prods = data.products;
           }
@@ -95,19 +97,22 @@ export class LaptopsComponent implements OnInit {
   public prods: any;
   public pageRaod: any = [1, 2, 3];
   public pageID: any = 0;
+  public pageLimit:any;
   getProds(ID: any) {
     ID++;
     this.pageID = ID;
     this.api.getCategoryWithId(this.id, this.pageID, this.pageSize).subscribe({
       next: (data: FullProduct) => {
         this.prods = data.products;
+        this.pageLimit = data.total
       },
     });
   }
   getInfo() {
     this.api.gadamzidi.subscribe((data: any) => {
-      console.log(data);
       this.prods = data.products;
+
+      console.log(this.prods);
     });
   }
   /* brands */
@@ -155,6 +160,7 @@ export class LaptopsComponent implements OnInit {
     this.api.getOnlyBrand(this.brandO[id].brand).subscribe({
       next: (data: any) => {
         this.prods = data.products;
+        this.pageLimit = data.total
         this.openBurgerFilter = false;
       },
     });

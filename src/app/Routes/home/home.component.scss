@@ -206,6 +206,27 @@
         display: flex;
         gap: 15px;
         flex-wrap: wrap;
+        .phone:nth-child(1){
+          .imDiv{
+            .image{
+              width: 130px;
+            }
+          }
+        }
+        .phone:nth-child(2){
+          .imDiv{
+            .image{
+              width: 130px;
+            }
+          }
+        }
+        .phone:nth-child(3){
+          .imDiv{
+            .image{
+              width: 130px;
+            }
+          }
+        }
         .card {
           width: 220px;
           border: none;

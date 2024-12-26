@@ -79,6 +79,17 @@ section .burgerFilterSection .filter .rangeFilter .price-input-container .price-
   -webkit-appearance: none;
   margin: 0;
 }
+section .burgerFilterSection .filter .rangeFilter .price-input-container .price-input .searchBtn2 {
+  width: 80px;
+  height: 32px;
+  border: none;
+  color: #1c61e7;
+  background-color: #dae0ee;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 10px;
+  margin-left: 15px;
+}
 section .burgerFilterSection .filter .rangeFilter .slider-container {
   height: 2px;
   position: relative;
@@ -362,10 +373,6 @@ section .mainProds .products .prods .paginate {
   justify-content: center;
   gap: 10px;
   margin-top: 50px;
-  /* button:focus {
-    background-color: #1c61e7;
-    color: white;
-  } */
 }
 section .mainProds .products .prods .paginate button {
   width: 35px;
@@ -404,7 +411,7 @@ section .mainProds .products .prods .paginate .blueBtn {
     justify-content: space-between;
     margin: auto;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
   section .mainProds .products .prods .p1 .card {
     width: 150px;

@@ -340,6 +340,12 @@
           .deleteItem {
             i {
               font-size: 10px;
+              cursor: pointer;
+              transition: 0.3s;
+            }
+            i:hover{
+              font-size: 13px;
+              color: red;
             }
           }
         }

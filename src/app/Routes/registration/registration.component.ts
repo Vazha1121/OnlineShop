@@ -4,11 +4,17 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../Services/api.service';
 import { HttpHeaders } from '@angular/common/http';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
-  imports: [RouterModule,ReactiveFormsModule,FormsModule],
+  imports: [RouterModule, ReactiveFormsModule, FormsModule],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss',
 })
@@ -90,57 +96,74 @@ export class RegistrationComponent implements OnInit {
         this.myRefreshToken = data.refresh_token;
         this.cookie.set('userAccToken', this.myAccessToken);
         this.showSignIn = false;
-        if(this.myAccessToken = data.access_token){
-          this.actR.navigate(["/"])
+        if ((this.myAccessToken = data.access_token)) {
+          this.actR.navigate(['/']);
         }
       },
-      error: (err:any) => {
-        alert("გადაამოწმეთ მეილი და პაროლი")
-      }
+      error: (err: any) => {
+        alert('გადაამოწმეთ მეილი და პაროლი');
+      },
     });
   }
   /* registration */
+   public strongPass: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/;
+   public showAcception: any;
+   public showRegretion: any;
+   public showAlert!:boolean;
   public register: FormGroup = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    age: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    address: new FormControl(''),
-    phone: new FormControl(''),
-    zipcode: new FormControl(''),
-    avatar: new FormControl(''),
-    gender: new FormControl('')
-  })
-  makeRegister(){
-    this.api.signUp(this.register.value).subscribe({
-      next: (data:any) => {
-        console.log(data);
-        
-      }
-    })
+    firstName: new FormControl('' , [Validators.required]),
+    lastName: new FormControl('' , [Validators.required]),
+    age: new FormControl('' , [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+    password: new FormControl('' , [Validators.required,Validators.pattern(this.strongPass)]),
+    address: new FormControl('' , [Validators.required]),
+    phone: new FormControl('' , [Validators.required]),
+    zipcode: new FormControl('' , [Validators.required,Validators.pattern('')]),
+    avatar: new FormControl('' , [Validators.required]),
+    gender: new FormControl('' , [Validators.required]),
+  });
+  makeRegister() {
+    this.showAlert = true;
+    console.log(this.showAlert);
     
+    this.api.signUp(this.register.value).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.showAcception = data
+        
+      },
+      error: (err:any) => {
+        this.showRegretion = err
+      }
+    });
+  }
+  diax(){
+    this.showAlert = false
+    console.log(this.showAlert);
+    
+  }
+  logValidation(){
+    console.log(this.register.value.error);
   }
   /* changePass */
   public chngPass: FormGroup = new FormGroup({
     oldPassword: new FormControl(''),
-    newPassword: new FormControl('')
-  })
-  makePassChange(){
+    newPassword: new FormControl(''),
+  });
+  makePassChange() {
     const headers = new HttpHeaders({
       accept: 'application/json',
       Authorization: `Bearer ${this.cookie.get('userAccToken')}`,
     });
     const oldNewPass = {
-      oldPass: "Vazha1121",
-      newPass: "Vajiko2003@"
-    }
-    this.api.changePassword(this.chngPass.value,headers).subscribe({
-      next: (data:any) => {
+      oldPass: 'Vazha1121',
+      newPass: 'Vajiko2003@',
+    };
+    this.api.changePassword(this.chngPass.value, headers).subscribe({
+      next: (data: any) => {
         console.log(data);
         console.log(this.chngPass);
-        
-      }
-    })
+      },
+    });
   }
 }

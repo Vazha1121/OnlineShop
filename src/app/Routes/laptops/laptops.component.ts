@@ -19,7 +19,7 @@ export class LaptopsComponent implements OnInit {
   ngOnInit(): void {
     this.brandsApi();
     this.getProds(this.pageID);
-/*     this.getInfo(); */
+    this.getInfo();
     this.showAllCardInterface();
     console.log(this.prods.length);
     
@@ -111,7 +111,7 @@ export class LaptopsComponent implements OnInit {
   getInfo() {
     this.api.gadamzidi.subscribe((data: any) => {
       this.prods = data.products;
-
+      this.pageLimit = data.total
       console.log(this.prods);
     });
   }

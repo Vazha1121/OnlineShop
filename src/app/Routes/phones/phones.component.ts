@@ -15,7 +15,7 @@ export class PhonesComponent implements OnInit {
   constructor(public api: ApiService, public cookie: CookieService) {
     this.brandsApi();
     this.getProds(this.pageID);
-/*     this.getInfo(); */
+    this.getInfo();
   }
 
   ngOnInit(): void {}

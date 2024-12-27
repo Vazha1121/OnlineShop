@@ -95,7 +95,32 @@
         </span>
         <span class="s2" (click)="privacy()"> კონფიდენციალურობის პოლიტიკა.</span>
         <button class="regbtn" >რეგისტრაცია</button>
+        
       </form>
+      <div class="alert" [class.showAlert]="showAlert">
+        @if(showAcception){
+          <div class="alertDiv">
+            
+            <div class="textDiv green">
+              <p>თქვენ წარმატებით გაიარეთ რეგისტაცია!</p>
+              <p>გთხოვთ დაადასტუროთ თქვენი ელ-ფოსტის მისამართი</p>
+            </div>
+            <div class="closeDiv">
+              <button (click)="diax()">დიახ</button>
+            </div>
+          </div>
+        }@else if (showRegretion) {
+          <div class="alertDiv" [class.showAlert]="showAlert">
+            <div class="textDiv red">
+              <p>შეცდომა!</p>
+              <p>გთხოვთ გადაამოწმოთ შეყვანილი ინფორმაცია</p>
+            </div>
+            <div class="closeDiv">
+              <button (click)="diax()">დიახ</button>
+            </div>
+          </div>
+        }
+      </div>
       <div class="enter">
         <h4>შესვლა</h4>
         <span

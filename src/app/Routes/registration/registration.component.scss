@@ -23,6 +23,14 @@ section {
         border: 1px solid #e5e5e5;
         background-color: white;
         padding-left: 15px;
+        outline: none;
+      }
+      .ng-valid {
+        border: 2px solid green;
+        outline: none;
+      }
+      .ng-untouched {
+        border: 2px solid #4267e9;
       }
     }
     .s1 {
@@ -35,31 +43,104 @@ section {
     .regbtn {
       height: 42px;
       color: white;
-      background-color: #1C61E7;
+      background-color: #1c61e7;
       border: none;
       border-radius: 0.5em;
       font-weight: 600;
       font-size: 14px;
     }
-    .remember{
+    .remember {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .r1 {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        .r1{
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        gap: 5px;
+      }
+      .r2 {
+        color: #1c61e7;
+        span {
+          cursor: pointer;
         }
-        .r2{
-            color: #1C61E7;
-            span{
-                cursor: pointer;
-            }
-            span:hover{
-                text-decoration: underline;
-            }
+        span:hover {
+          text-decoration: underline;
         }
+      }
     }
+  }
+  .alert {
+    width: 100%;
+    height: 400vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: auto;
+    z-index: -1;
+    opacity: 0%;
+    transition: 0.2s;
+    .alertDiv {
+      width: 30%;
+      height: 300px;
+      background-color: white;
+      border-radius: 0.5em;
+      position: relative;
+      top: 100px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      opacity: 100%;
+      transition: 0.1s;
+      z-index: 12;
+      .closeDiv {
+        button {
+          width: 60px;
+          height: 42px;
+          background-color: #4267e9;
+          border-radius: 0.5em;
+          color: white;
+          font-weight: 600;
+          border: none;
+          transition: 0.3s;
+          cursor: pointer;
+        }
+        button:hover {
+          opacity: 80%;
+        }
+      }
+      .green {
+        color: green;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        p:nth-child(1) {
+          font-size: 25px;
+          font-weight: 600;
+        }
+      }
+      .red {
+        color: red;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        p:nth-child(1) {
+          font-size: 25px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .showAlert {
+    z-index: 11;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 100%;
+    transition: 0.2s;
   }
   .enter {
     height: 300px;
@@ -85,67 +166,66 @@ section {
     }
   }
 }
-.userProf{
+.userProf {
   max-width: 1440px;
   width: 100%;
-  .profile
-  {
+  .profile {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    .imgDiv{
+    .imgDiv {
       width: 210px;
       height: 210px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #1C61E7;
-      img{
+      background-color: #1c61e7;
+      img {
         width: 200px;
         height: 200px;
         border-radius: 50%;
       }
     }
-    .infoDiv{
+    .infoDiv {
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
   }
-  .logOut{
-    button{
+  .logOut {
+    button {
       width: 100px;
       height: 42px;
       border: none;
       border-radius: 0.5em;
-      background-color: #1C61E7;
+      background-color: #1c61e7;
       color: white;
       font-weight: 600;
     }
   }
 }
-@media screen and (max-width:900px){
-  section{
+@media screen and (max-width: 900px) {
+  section {
     flex-direction: column-reverse;
   }
 }
-.passChangeSection{
+.passChangeSection {
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  form{
+  form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    div{
+    div {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      input{
+      input {
         width: 100%;
         height: 42px;
         outline: none;
@@ -153,12 +233,11 @@ section {
         border-radius: 0.5em;
         padding-left: 10px;
       }
-    
     }
-    button{
+    button {
       width: 100px;
       height: 42px;
-      background-color: #1C61E7;
+      background-color: #1c61e7;
       color: white;
       font-weight: 600;
       margin: auto;
